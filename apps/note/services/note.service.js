@@ -1,7 +1,6 @@
-import { utilService } from '../../../services/util.service'
-import { storageService } from '../../../services/storage.service'
-import { asyncStorageService } from '../../../services/async-storage.service'
-
+import { utilService } from '../../../services/util.service.js'
+import { storageService } from '../../../services/storage.service.js'
+import { asyncStorageService } from '../../../services/async-storage.service.js'
 
 const NOTE_KEY = 'noteDB'
 _createNotes()
@@ -75,11 +74,48 @@ function getDefaultFilter() {
 
 
 function _createNotes() {
-    let notes = utilService.loadFromStorage(NOTE_KEY)
+    let notes = storageService.loadFromStorage(NOTE_KEY)
 
     if (!notes || !notes.length) {
-        notes = defaultNotes
-        utilService.saveToStorage(NOTE_KEY, notes)
+        notes =  [
+        { 
+            id: "n101", 
+            type: "note-txt", 
+            isPinned: true, 
+            info: { 
+                txt: "Fullstack Me Baby!" 
+            } ,
+            style: { 
+                backgroundColor: "#00d" 
+            } 
+        }, 
+        { 
+            id: "n102", 
+            type: "note-img", 
+            info: { 
+                url: "http://some-img/me", 
+                title: "Bobi and Me" 
+            }, 
+            style: { 
+                backgroundColor: "#00d" 
+            } 
+        }, 
+        { 
+            id: "n103", 
+            type: "note-todos", 
+            info: { 
+                label: "Get my stuff together", 
+                todos: [ 
+                    { txt: "Driving liscence", doneAt: null }, 
+                    { txt: "Coding power", doneAt: 187111111 },
+                ] 
+            },
+            style: { 
+                backgroundColor: "#00d" 
+            } 
+        } 
+    ]
+        storageService.saveToStorage(NOTE_KEY, notes)
     }
 
     console.log(notes)
@@ -91,43 +127,3 @@ function _createNote(vendor, maxSpeed = 250) {
     note.id = utilService.makeId()
     return note
 }
-
-
-const defaultNotes = [ 
-    { 
-        id: "n101", 
-        type: "note-txt", 
-        isPinned: true, 
-        info: { 
-            txt: "Fullstack Me Baby!" 
-        } ,
-        style: { 
-            backgroundColor: "#00d" 
-        } 
-    }, 
-    { 
-        id: "n102", 
-        type: "note-img", 
-        info: { 
-            url: "http://some-img/me", 
-            title: "Bobi and Me" 
-        }, 
-        style: { 
-            backgroundColor: "#00d" 
-        } 
-    }, 
-    { 
-        id: "n103", 
-        type: "note-todos", 
-        info: { 
-            label: "Get my stuff together", 
-            todos: [ 
-                { txt: "Driving liscence", doneAt: null }, 
-                { txt: "Coding power", doneAt: 187111111 },
-            ] 
-        },
-        style: { 
-            backgroundColor: "#00d" 
-        } 
-    } 
-]

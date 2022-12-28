@@ -5,6 +5,7 @@ import { noteService } from '../services/note.service.js'
 
 import { NoteAdd } from '../cmps/note-add.jsx'
 import { NoteList } from '../cmps/note-list.jsx'
+import { NoteFilter } from '../cmps/note-filter.jsx'
 
 
 export function NoteIndex() {
@@ -53,12 +54,15 @@ export function NoteIndex() {
     
     return <section className="note-index">
 
+		<NoteFilter onSetFilter={onSetFilter} />
+
         <div className="note-index-add">
             <NoteAdd />
         </div>
 
         <div className="note-index-list">
-            <NoteList notes={notes}/>
+			{!isLoading && <NoteList notes={notes} />}
+			{isLoading && <div>Loading..</div>}
         </div>
 
   </section>

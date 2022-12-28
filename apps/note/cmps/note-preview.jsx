@@ -1,16 +1,14 @@
 
-export function NotePreview( { notes } ) {
-	console.log(notes);
+export function NotePreview( { note } ) {
 
 	return <section className="note-preview">
 
-	<div 
-	className={`${note.type}`}>
+	<div>
 
 		<h1>{note.info.title}</h1>
 		<p>{note.info.txt}</p>
 
 	</div>
 
-</section>
+	</section>
 }
