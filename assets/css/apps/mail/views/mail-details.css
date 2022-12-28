@@ -59,5 +59,7 @@
 .mail-details-body {
     font: small/1.5 Arial,Helvetica,sans-serif;
     overflow: hidden;
-    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--mail-border);
+
 }
