@@ -9,4 +9,5 @@
 .mail-sidebar * {
     height: 32px;
     margin-right: auto;
+    gap: 10px;
 }
