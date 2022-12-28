@@ -21,9 +21,11 @@ export function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/mail" element={<MailIndex />} />
 					<Route path="/mail/:mailId" element={<MailDetails />} />
+					{/* edit should be nested under list */}
 					<Route path="/mail/edit/:mailId" element={<MailEdit />} />
 					<Route path="/note" element={<NoteIndex />} />
 					<Route path="/note/:noteId" element={<NoteDetails />} />
+					{/* edit should be nested under list */}
 					<Route path="/note/edit/:noteId" element={<NoteEdit />} />
 					<Route path="/about" element={<About />} />
 				</Routes>
