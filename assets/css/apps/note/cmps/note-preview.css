@@ -8,13 +8,43 @@
 
 
     min-width: 120px;
-    min-height: 100px;
+    min-height: 120px;
 
     break-inside: avoid;
     line-break: anywhere;
+    position: relative;
 }
 
 
 .note-preview:hover {
     box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+}
+
+
+.note-editor{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+
+.note-preview button, .note-preview .note-editor button {
+    background-color: transparent;
+    border: none;
+    height: 46px;
+    opacity: 50%;
+    cursor: pointer;
+    transition: transform .2s ease-in-out;
+}
+
+
+.note-preview button:hover, .note-preview .note-editor button:hover {
+    transform: scale(1.2);
+}
+
+
+.pin-btn{
+    position: absolute;
+    top: 0;
+    right: 0;
 }

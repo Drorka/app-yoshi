@@ -53,10 +53,5 @@
 
 
 .note-add form .input-btns button:hover {
-    background-color: transparent;
-    border: none;
-    height: 46px;
-    opacity: 50%;
-    cursor: pointer;
     transform: scale(1.2);
 }
