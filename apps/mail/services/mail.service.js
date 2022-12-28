@@ -1,7 +1,8 @@
 console.log('Hi')
 
-import { utilService } from './util.service.js'
-import { storageService } from './async-storage.service.js'
+import { utilService } from '../../../services/util.service.js'
+import { storageService } from '../../../services/storage.service.js'
+import { asyncStorageService } from '../../../services/async-storage.service.js'
 
 const MAIL_KEY = 'mailDB'
 _createMails()
@@ -13,14 +14,12 @@ export const mailService = {
 	save,
 	getEmptyMail,
 	getDefaultFilter,
-	addReview,
 	getNextMailId,
 	getPrevMailId,
-	addGoogleMail,
 }
 
 function query(filterBy = getDefaultFilter()) {
-	return storageService.query(MAIL_KEY).then((mails) => {
+	return asyncStorageService.query(MAIL_KEY).then((mails) => {
 		if (filterBy.txt) {
 			const regex = new RegExp(filterBy.txt, 'i')
 			mails = mails.filter((mail) => regex.test(mail.title))
@@ -33,11 +32,11 @@ function query(filterBy = getDefaultFilter()) {
 }
 
 function get(mailId) {
-	return storageService.get(MAIL_KEY, mailId)
+	return asyncStorageService.get(MAIL_KEY, mailId)
 }
 
 function getNextMailId(mailId) {
-	return storageService.query(MAIL_KEY).then((mails) => {
+	return asyncStorageService.query(MAIL_KEY).then((mails) => {
 		var idx = mails.findIndex((mail) => mail.id === mailId)
 		if (idx === mails.length - 1) idx = -1
 		return mails[idx + 1].id
@@ -45,7 +44,7 @@ function getNextMailId(mailId) {
 }
 
 function getPrevMailId(mailId) {
-	return storageService.query(MAIL_KEY).then((mails) => {
+	return asyncStorageService.query(MAIL_KEY).then((mails) => {
 		var idx = mails.findIndex((mail) => mail.id === mailId)
 		if (idx === 0) idx = mails.length
 		return mails[idx - 1].id
@@ -53,14 +52,14 @@ function getPrevMailId(mailId) {
 }
 
 function remove(mailId) {
-	return storageService.remove(MAIL_KEY, mailId)
+	return asyncStorageService.remove(MAIL_KEY, mailId)
 }
 
 function save(mail) {
 	if (mail.id) {
-		return storageService.put(MAIL_KEY, mail)
+		return asyncStorageService.put(MAIL_KEY, mail)
 	} else {
-		return storageService.post(MAIL_KEY, mail)
+		return asyncStorageService.post(MAIL_KEY, mail)
 	}
 }
 
@@ -83,7 +82,7 @@ function getDefaultFilter() {
 }
 
 function _createMails() {
-	let mails = utilService.loadFromStorage(MAIL_KEY)
+	let mails = storageService.loadFromStorage(MAIL_KEY)
 	if (!mails || !mails.length) {
 		mails = [
 			{
@@ -456,7 +455,7 @@ function _createMails() {
 				},
 			},
 		]
-		utilService.saveToStorage(MAIL_KEY, mails)
+		storageService.saveToStorage(MAIL_KEY, mails)
 	}
 }
 
