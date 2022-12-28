@@ -1,15 +1,16 @@
-import { noteService } from '../services/note.service.jsx'
+import { noteService } from '../services/note.service.js'
 
 import { NotePreview } from './note-preview.jsx'
 
 
 export function NoteList( { notes } ) {
+    console.log(notes);
 
     return <section className="note-list">
 
         <h1>Note List</h1>
 
-        <NotePreview />
+        <NotePreview notes={notes} />
 
         {/* {
             notes.map(note => <li key={note.id}>

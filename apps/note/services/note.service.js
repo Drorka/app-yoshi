@@ -81,6 +81,8 @@ function _createNotes() {
         notes = defaultNotes
         utilService.saveToStorage(NOTE_KEY, notes)
     }
+
+    console.log(notes)
 }
 
 
@@ -98,6 +100,9 @@ const defaultNotes = [
         isPinned: true, 
         info: { 
             txt: "Fullstack Me Baby!" 
+        } ,
+        style: { 
+            backgroundColor: "#00d" 
         } 
     }, 
     { 
@@ -120,6 +125,9 @@ const defaultNotes = [
                 { txt: "Driving liscence", doneAt: null }, 
                 { txt: "Coding power", doneAt: 187111111 },
             ] 
+        },
+        style: { 
+            backgroundColor: "#00d" 
         } 
     } 
 ]
