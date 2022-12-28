@@ -1,12 +1,24 @@
+const { useNavigate } = ReactRouterDOM
+
 import { utilService } from '../../../services/util.service.js'
 
 export function MailPreview({ mail }) {
+	const navigate = useNavigate()
+
 	const mailDate = utilService.getMailDate(mail.sentAt)
 
 	const read = mail.isRead ? 'read' : 'unread'
 
+	function onOpenMailDetails(mailId) {
+		console.log('link me to mail details', mailId)
+		navigate(`/mail/${mailId}`)
+	}
+
 	return (
-		<article className={'mail-preview flex align-center ' + read}>
+		<article
+			className={'mail-preview flex align-center ' + read}
+			onClick={() => onOpenMailDetails(mail.id)}
+		>
 			<div className="mail-markers flex space-around">
 				<span className="material-symbols-outlined">
 					check_box_outline_blank
