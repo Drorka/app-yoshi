@@ -7,6 +7,7 @@ export const utilService = {
 	getDayName,
 	getMonthName,
 	getYear,
+	getMailDate,
 	animateCSS,
 }
 
@@ -110,6 +111,14 @@ function getMonthName(date) {
 function getYear() {
 	const currDate = new Date()
 	return currDate.getFullYear()
+}
+
+function getMailDate(date) {
+	const formattedDate = new Date(date)
+	const day = formattedDate.getDate()
+	const month = getMonthName(formattedDate)
+	const mailDate = `${month} ${day}`
+	return mailDate
 }
 
 function animateCSS(el, animation) {
