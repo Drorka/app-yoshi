@@ -1,7 +1,7 @@
 const { useEffect, useState } = React
 const { useParams, useNavigate, Link } = ReactRouterDOM
 
-import { storageService } from '../../../services/storage.service.js'
+import { utilService } from '../../../services/util.service.js'
 import { mailService } from '../services/mail.service.js'
 
 import { MailSidebar } from '../cmps/mail-sidebar.jsx'
@@ -9,16 +9,12 @@ import { MailSidebar } from '../cmps/mail-sidebar.jsx'
 export function MailDetails() {
 	const [mail, setMail] = useState(null)
 	const { mailId } = useParams()
-	console.log(mailId)
 
 	useEffect(() => {
-		console.log('use effect')
 		loadMail()
 	}, [])
 
 	function loadMail() {
-		console.log('load mail')
-
 		mailService
 			.get(mailId)
 			.then((mail) => setMail(mail))
@@ -31,6 +27,8 @@ export function MailDetails() {
 
 	if (!mail) return <div>Loading...</div>
 
+	const fullMailDate = utilService.getFullMailDate(mail.sentAt)
+
 	return (
 		<section className="mail-details full main-layout flex">
 			<MailSidebar />
@@ -38,7 +36,24 @@ export function MailDetails() {
 				<div className="mail-details-title">
 					<h2>{mail.subject}</h2>
 				</div>
-				<div className="mail-details-body">{mail.body}</div>
+
+				<div className="mail-details-body-container flex">
+					<div className="mail-details-sender-icon">
+						<span className="material-symbols-outlined">account_circle</span>
+					</div>
+					<div className="mail-details-data-container flex flex-column">
+						<div className="mail-details-data flex space-between">
+							<div className="mail-details-sender">
+								<span className="mail-details-sender-name">{mail.sender}</span>
+								<span className="mail-details-sender-mail">
+									&#60;{mail.from}&#62;
+								</span>
+							</div>
+							<div className="mail-details-time">{fullMailDate}</div>
+						</div>
+						<div className="mail-details-body">{mail.body}</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	)

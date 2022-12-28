@@ -1,0 +1,62 @@
+.mail-details-title h2 {
+    font-size: 1.375rem;
+    font-weight: 400;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    text-align: start;
+}
+
+/* sender icon */
+.mail-details-sender-icon {
+    height: 80px;
+    min-width: 40px;
+    padding: 0 16px;
+    align-items: center;
+}
+
+.mail-details-sender-icon .material-symbols-outlined {
+    font-size: 40px;
+}
+
+.mail-details-data-container {
+    flex-grow: 1;
+}
+
+/* mail data */
+.mail-details-data {
+    height: 40px;
+    align-items: center;
+}
+
+/* sender name */
+.mail-details-sender-name {
+    color: #1f1f1f;
+    font-size: .875rem;
+    line-height: 20px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+/* sender mail */
+.mail-details-sender-mail {
+    color: #5e5e5e;
+    font-size: .75rem;
+    line-height: 20px;
+
+}
+
+.mail-details-time {
+    color: #5e5e5e;
+    font-size: .75rem;
+    line-height: 20px;
+
+}
+
+/* mail body */
+.mail-details-body {
+    font: small/1.5 Arial,Helvetica,sans-serif;
+    overflow: hidden;
+    margin-top: 15px;
+}
