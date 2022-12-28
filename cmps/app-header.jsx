@@ -4,7 +4,7 @@ export function AppHeader() {
 	return (
 		<header className="app-header">
 			<Link to="/">
-				<img src="../assets/img/mario-yoshi-ani.gif" alt="yoshi logo" />
+				<img src="/../assets/img/mario-yoshi-ani.gif" alt="yoshi logo" />
 			</Link>
 			<nav>
 				<NavLink to="/">
@@ -16,7 +16,7 @@ export function AppHeader() {
 				</NavLink>
 
 				<NavLink to="/note">
-					<img src="../assets/img/icons/keep_logo.png" alt="keep" />
+					<img src="../assets/img/icons/keep_logo.png" alt="note" />
 				</NavLink>
 
 				<NavLink to="/about">
