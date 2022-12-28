@@ -1,8 +1,10 @@
+/* * flex & grid helpers */
+
 .flex {
     display: flex;
 }
 
-.column {
+.flex-column {
     flex-direction: column;
 }
 
@@ -18,6 +20,18 @@
     justify-content: space-between;
 }
 
+.space-around {
+    justify-content: space-around;
+}
+
 .grid {
     display: grid;
+}
+
+/* * list helpers */
+
+.clean-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
 }
