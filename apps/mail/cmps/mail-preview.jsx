@@ -18,7 +18,10 @@ export function MailPreview({ mail }) {
 			<div className={'mail-subject ' + read}>{mail.subject}</div>
 			<div className="mail-body">- {mail.body}</div>
 			<div className={'mail-date ' + read}>{mailDate}</div>
-			<div className="mail-quick-crudl"></div>
+			<div className="mail-quick-crudl">
+				<span class="material-symbols-outlined">delete</span>
+				<span class="material-symbols-outlined">drafts</span>
+			</div>
 		</article>
 	)
 }

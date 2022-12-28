@@ -70,3 +70,24 @@
 .mail-date.read {
     font-weight: 400;
 }
+
+.mail-preview:hover .mail-date {
+    opacity:0
+}
+
+/* crudl */
+.mail-quick-crudl  {
+    display: none;
+}
+
+.mail-quick-crudl * {
+    margin-right: 15px;
+}
+
+.mail-quick-crudl *:hover {
+    background-color: var(--mail-sidebar-hover);
+}
+
+.mail-preview:hover .mail-quick-crudl  {
+    display:block;
+}
