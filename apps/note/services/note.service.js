@@ -19,7 +19,7 @@ export const noteService = {
 
 
 function query(filterBy = getDefaultFilter()) {
-    return storageService.query(NOTE_KEY)
+    return asyncStorageService.query(NOTE_KEY)
         .then(notes => {
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
@@ -34,13 +34,13 @@ function query(filterBy = getDefaultFilter()) {
 
 
 function get(noteId) {
-    return storageService.get(NOTE_KEY, noteId)
+    return asyncStorageService.get(NOTE_KEY, noteId)
     
 }
 
 
 function getNextNoteId(noteId) {
-    return storageService.query(NOTE_KEY)
+    return asyncStorageService.query(NOTE_KEY)
         .then(notes => {
             var idx = notes.findIndex(note => note.id === noteId)
             if (idx === notes.length - 1) idx = -1
@@ -50,15 +50,15 @@ function getNextNoteId(noteId) {
 
 
 function remove(noteId) {
-    return storageService.remove(NOTE_KEY, noteId)
+    return asyncStorageService.remove(NOTE_KEY, noteId)
 }
 
 
 function save(note) {
     if (note.id) {
-        return storageService.put(NOTE_KEY, note)
+        return asyncStorageService.put(NOTE_KEY, note)
     } else {
-        return storageService.post(NOTE_KEY, note)
+        return asyncStorageService.post(NOTE_KEY, note)
     }
 }
 
@@ -117,8 +117,6 @@ function _createNotes() {
     ]
         storageService.saveToStorage(NOTE_KEY, notes)
     }
-
-    console.log(notes)
 }
 
 
