@@ -3,7 +3,7 @@ import { storageService } from '../../../services/storage.service.js'
 import { asyncStorageService } from '../../../services/async-storage.service.js'
 
 const NOTE_KEY = 'noteDB'
-_createNotes()
+createNotes()
 
 
 export const noteService = {
@@ -15,7 +15,7 @@ export const noteService = {
     getDefaultFilter,
     getNextNoteId,
     createNote,
-    _createNotes,
+    createNotes,
 }
 
 
@@ -80,7 +80,7 @@ function getDefaultFilter() {
 }
 
 
-function _createNotes() {
+function createNotes() {
     let notes = storageService.loadFromStorage(NOTE_KEY)
 
     if (!notes || !notes.length) {

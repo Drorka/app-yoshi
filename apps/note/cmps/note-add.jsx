@@ -5,39 +5,43 @@ import { noteService } from '../services/note.service.js'
 
 export function NoteAdd() {
 
-  const [noteToAdd , setNoteToAdd] = useState(noteService.createNote())
+  const [noteToSave , setNoteToSave] = useState(noteService.createNote())
 
 
   function handleChange( { target } ) {
     let { value, name: field } = target
 
-    setNoteToAdd((prevNote) => ({ ...prevNote, [field]: value }))
+    setNoteToSave((prevNote) => ({ ...prevNote, [field]: value }))
     } 
 
 
-    function onSubmitNote(ev) {
+    function onSaveNote(ev) {
         ev.preventDefault()
-        noteService.save(noteToAdd)
+
+        noteService.save(noteToSave)
+          .then((note) => {
+            console.log('note saved')
+      })
     }
 
 
     return <section className="note-add">
 
-        <form onSubmit={onSubmitNote}>
+        <form onSubmit={onSaveNote}>
 
             <input type="text" 
             name="txt"
             placeholder="Write something..."
-            value={noteToAdd.txt}
+            value={noteToSave.txt}
             onChange={handleChange} />
 
             <div className="input-btns">
 
-              <button onClick={onSubmitNote} className="material-symbols-outlined">priority</button>
+              <button onClick={onSaveNote} className="material-symbols-outlined">priority</button>
 
-              <button onClick={onSubmitNote} className="material-symbols-outlined">image</button>
+              <button onClick={onSaveNote} className="material-symbols-outlined">image</button>
 
-              <button onClick={onSubmitNote} className="material-symbols-outlined">videocam</button>
+              <button onClick={onSaveNote} className="material-symbols-outlined">videocam</button>
 
             </div>
         </form>
