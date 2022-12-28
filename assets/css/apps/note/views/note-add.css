@@ -1,14 +1,15 @@
 .note-add {
     display: block;
+    margin: 10px;
 }
 
 
 .note-add form {
-    width: 600px;
-    margin: 16px auto 8px auto;
-    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
-    border-radius: 8px;
+    max-width: 600px;
+    margin: 16px auto 16px auto;
     height: 46px;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
     background-color: #fff;
     border-color: #e0e0e0;
     overflow: hidden;
@@ -23,7 +24,6 @@
     height: auto;
     border: none;
     background-color: transparent;
-    position: relative;
     display: inline-block;
     outline: none;
     padding-left: 10px;
@@ -31,4 +31,32 @@
     position: absolute;
     top: 50%;              
     transform: translate(0, -50%)
+}
+
+
+.note-add form .input-btns {
+    display: inline-block;
+    position: absolute; 
+    right: 0;
+    height: 46px;
+}
+
+
+.note-add form .input-btns button {
+    background-color: transparent;
+    border: none;
+    height: 46px;
+    opacity: 50%;
+    cursor: pointer;
+    transition: transform .2s ease-in-out;
+}
+
+
+.note-add form .input-btns button:hover {
+    background-color: transparent;
+    border: none;
+    height: 46px;
+    opacity: 50%;
+    cursor: pointer;
+    transform: scale(1.2);
 }
