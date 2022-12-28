@@ -1,5 +1,5 @@
 
 export function NoteFilter() {
 	
-	return <div>note filter</div>
+	return <h3>note filter</h3>
 }

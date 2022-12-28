@@ -1,6 +1,7 @@
 const { useState, useEffect } = React
 const { Link } = ReactRouterDOM
 
+import { Loader } from '../../../cmps/loader'
 import { noteService } from '../services/note.service.js'
 
 import { NoteAdd } from '../cmps/note-add.jsx'
@@ -62,7 +63,7 @@ export function NoteIndex() {
 
         <div className="note-index-list">
 			{!isLoading && <NoteList notes={notes} />}
-			{isLoading && <div>Loading..</div>}
+			{isLoading && <div><Loader /></div>}
         </div>
 
   </section>

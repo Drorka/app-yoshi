@@ -3,11 +3,13 @@
 @import './setup/variables.css';
 @import './setup/fonts.css';
 
+
 /* * Basics */
 
 @import './basics/base.css';
 @import './basics/helpers.css';
 @import './basics/layout.css';
+
 
 /* * Views */
 /* general */
@@ -25,10 +27,12 @@
 @import './apps/mail/views/mail-details.css';
 @import './apps/mail/views/mail-edit.css';
 
+
 /* * Cmps */
 /* general */
 @import './cmps/user-msg.css';
 @import './cmps/app-header.css';
+@import './cmps/loader.css';
 
 /* note */
 @import './apps/note/cmps/note-list.css';
