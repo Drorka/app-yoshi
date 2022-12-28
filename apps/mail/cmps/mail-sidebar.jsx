@@ -1,3 +1,3 @@
 export function MailSidebar() {
-	return <div>Mail sidebar</div>
+	return <section className="mail-sidebar">Mail sidebar</section>
 }
