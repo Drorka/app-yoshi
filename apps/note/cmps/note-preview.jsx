@@ -13,9 +13,8 @@ export function NotePreview( { note } ) {
 
 		</div>
 
-		<div className="pin-btn">
 		<button className="material-symbols-outlined pin-btn">push_pin</button>
-		</div>
+
 
 		<div className="note-editor">
 
