@@ -1,9 +1,10 @@
-import { utilService } from './util.service.js'
-import { storageService } from './async-storage.service.js'
+import { utilService } from '../../../services/util.service'
+import { storageService } from '../../../services/storage.service'
+import { asyncStorageService } from '../../../services/async-storage.service'
 
 
 const NOTE_KEY = 'noteDB'
-_createNote()
+_createNotes()
 
 
 export const noteService = {
@@ -14,6 +15,7 @@ export const noteService = {
     getEmptyNote,
     getDefaultFilter,
     getNextNoteId,
+    _createNotes,
 }
 
 
@@ -72,18 +74,11 @@ function getDefaultFilter() {
 }
 
 
-function _createNote() {
+function _createNotes() {
     let notes = utilService.loadFromStorage(NOTE_KEY)
+
     if (!notes || !notes.length) {
-        notes = []
-        notes.push(_createNote('audu', 300))
-        notes.push(_createNote('fiak', 120))
-        notes.push(_createNote('subali', 50))
-        notes.push(_createNote('mitsu', 150))
-        notes.push(_createNote('audu', 250))
-        notes.push(_createNote('fiak', 180))
-        notes.push(_createNote('subali', 35))
-        notes.push(_createNote('mitsu', 135))
+        notes = defaultNotes
         utilService.saveToStorage(NOTE_KEY, notes)
     }
 }
@@ -94,3 +89,37 @@ function _createNote(vendor, maxSpeed = 250) {
     note.id = utilService.makeId()
     return note
 }
+
+
+const defaultNotes = [ 
+    { 
+        id: "n101", 
+        type: "note-txt", 
+        isPinned: true, 
+        info: { 
+            txt: "Fullstack Me Baby!" 
+        } 
+    }, 
+    { 
+        id: "n102", 
+        type: "note-img", 
+        info: { 
+            url: "http://some-img/me", 
+            title: "Bobi and Me" 
+        }, 
+        style: { 
+            backgroundColor: "#00d" 
+        } 
+    }, 
+    { 
+        id: "n103", 
+        type: "note-todos", 
+        info: { 
+            label: "Get my stuff together", 
+            todos: [ 
+                { txt: "Driving liscence", doneAt: null }, 
+                { txt: "Coding power", doneAt: 187111111 },
+            ] 
+        } 
+    } 
+]
