@@ -1,0 +1,4 @@
+.mail-sidebar {
+    border: 2px solid blue;
+    flex-grow: 1;
+}
