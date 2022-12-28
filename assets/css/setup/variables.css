@@ -11,9 +11,13 @@
 
     --mail-sidebar-bg: #f6f8fc;
     --mail-sidebar-txt: #202124;
+    --mail-sidebar-select: #d3e3fd;
+    --mail-sidebar-hover: #e1e7ee;
 
-    --mail-preview-bg: #f2f6fc;
+    --mail-preview-bg: #ffffff;
+    --mail-preview-read-bg: #f2f6fc;
     --mail-preview-txt: #202124;
     --mail-preview-date-txt: #5f6368;
     --mail-preview-border: #e1e7ee;
+    --mail-preview-markers: #c7c8c7;
 }
