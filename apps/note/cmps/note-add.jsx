@@ -31,9 +31,15 @@ export function NoteAdd() {
             value={noteToAdd.txt}
             onChange={handleChange} />
 
-            <button onClick={onSubmitImg}></button>
-            <button onClick={onSubmitVideo}></button>
-            <button onClick={onSubmitTodos}></button>
+            <div className="input-btns">
+
+              <button onClick={onSubmitNote} className="material-symbols-outlined">priority</button>
+
+              <button onClick={onSubmitNote} className="material-symbols-outlined">image</button>
+
+              <button onClick={onSubmitNote} className="material-symbols-outlined">videocam</button>
+
+            </div>
         </form>
 
   </section>
