@@ -14,6 +14,7 @@ export const noteService = {
     getEmptyNote,
     getDefaultFilter,
     getNextNoteId,
+    createNote,
     _createNotes,
 }
 
@@ -63,8 +64,14 @@ function save(note) {
 }
 
 
-function getEmptyNote(vendor = '', maxSpeed = '') {
-    return { vendor, maxSpeed }
+function getEmptyNote() {
+    return {
+        type: 'note-txt',
+        isPinned: false,
+        info: {
+            txt: ''
+        }
+    }
 }
 
 
@@ -120,7 +127,7 @@ function _createNotes() {
 }
 
 
-function _createNote(vendor, maxSpeed = 250) {
+function createNote(vendor, maxSpeed = 250) {
     const note = getEmptyNote(vendor, maxSpeed)
     note.id = utilService.makeId()
     return note
