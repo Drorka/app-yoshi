@@ -93,7 +93,7 @@ function _createMails() {
 				id: utilService.makeId(),
 				subject: 'Miss you',
 				body: 'Would love to catch up sometimes',
-				isRead: false,
+				isRead: true,
 				sentAt: 1551133930594,
 				from: 'momo@momo.com',
 				to: 'momo@momo.com',

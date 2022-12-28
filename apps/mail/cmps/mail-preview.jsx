@@ -3,25 +3,21 @@ import { utilService } from '../../../services/util.service.js'
 export function MailPreview({ mail }) {
 	const mailDate = utilService.getMailDate(mail.sentAt)
 
+	const read = mail.isRead ? 'read' : 'unread'
+
 	return (
-		<article className="mail-preview flex">
-			<div className="mail-markers">
-				<button className="btn-mail-marker">
-					<span className="material-symbols-outlined">
-						check_box_outline_blank
-					</span>
-				</button>
-				<button className="btn-mail-marker">
-					<span className="material-symbols-outlined">star</span>
-				</button>
-				<button className="btn-mail-marker">
-					<span className="material-symbols-outlined">label_important</span>
-				</button>
+		<article className={'mail-preview flex align-center ' + read}>
+			<div className="mail-markers flex space-around">
+				<span className="material-symbols-outlined">
+					check_box_outline_blank
+				</span>
+				<span className="material-symbols-outlined">star</span>
+				<span className="material-symbols-outlined">label_important</span>
 			</div>
-			<div className="mail-sender">{mail.from}</div>
-			<div className="mail-subject">{mail.subject}</div>
+			<div className={'mail-sender ' + read}>{mail.from}</div>
+			<div className={'mail-subject ' + read}>{mail.subject}</div>
 			<div className="mail-body">- {mail.body}</div>
-			<div className="mail-date">{mailDate}</div>
+			<div className={'mail-date ' + read}>{mailDate}</div>
 			<div className="mail-quick-crudl"></div>
 		</article>
 	)

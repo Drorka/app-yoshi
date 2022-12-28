@@ -8,6 +8,34 @@
 
 .mail-sidebar * {
     height: 32px;
-    margin-right: auto;
     gap: 10px;
+    width: 100%;
 }
+
+
+.mail-sidebar-inbox-icon, .mail-sidebar-sent-icon, .mail-sidebar-drafts-icon, .mail-sidebar-trash-icon {
+    width: 20%;
+}
+
+.mail-sidebar-inbox-txt, .mail-sidebar-sent-txt, .mail-sidebar-drafts-txt, .mail-sidebar-trash-txt {
+    width: 80%;
+}
+
+.mail-sidebar-inbox:hover, .mail-sidebar-sent:hover, .mail-sidebar-drafts:hover, .mail-sidebar-trash:hover {
+    cursor: pointer;
+    background-color: var(--mail-sidebar-hover);
+}
+
+/* .mail-sidebar-inbox-txt, .mail-sidebar-sent-txt, .mail-sidebar-drafts-txt, .mail-sidebar-trash-txt {
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+.mail-sidebar-inbox{
+    align-self: center;
+    align-content: center;
+    align-items: center;
+    vertical-align: middle;
+} */
