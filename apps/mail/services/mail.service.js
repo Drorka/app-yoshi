@@ -32,6 +32,7 @@ function query(filterBy = getDefaultCriteria()) {
 }
 
 function get(mailId) {
+	console.log('mail service get', mailId)
 	return asyncStorageService.get(MAIL_KEY, mailId)
 }
 

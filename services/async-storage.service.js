@@ -12,6 +12,7 @@ function query(entityType, delay = 500) {
 }
 
 function get(entityType, entityId) {
+	console.log('async get', entityType, entityId)
 	return query(entityType).then((entities) => {
 		const entity = entities.find((entity) => entity.id === entityId)
 		if (!entity)
