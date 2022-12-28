@@ -1,5 +1,4 @@
 const { Link, NavLink } = ReactRouterDOM
-import { home_logo } from '../assets/img/icons/home_logo.png'
 
 export function AppHeader() {
 	return (
@@ -9,7 +8,7 @@ export function AppHeader() {
 			</Link>
 			<nav>
 				<NavLink to="/">
-					<img src={home_logo} alt="home" />
+					<img src="../assets/img/icons/home_logo.png" alt="home" />
 				</NavLink>
 
 				<NavLink to="/mail">
