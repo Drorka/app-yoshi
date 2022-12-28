@@ -2,4 +2,11 @@
     flex-grow: 1;
     min-width: 200px;
     background-color: var(--mail-sidebar-bg);
+    color: var(--mail-sidebar-txt);
+    padding: 15px;
+}
+
+.mail-sidebar * {
+    height: 32px;
+    margin-right: auto;
 }
