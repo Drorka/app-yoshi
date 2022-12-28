@@ -6,9 +6,10 @@ export const utilService = {
 	padNum,
 	getDayName,
 	getMonthName,
+	getYear,
+	getMailDate,
 	animateCSS,
 }
-
 
 function makeId(length = 6) {
 	var txt = ''
@@ -21,7 +22,6 @@ function makeId(length = 6) {
 
 	return txt
 }
-
 
 function makeLorem(size = 100) {
 	var words = [
@@ -66,18 +66,15 @@ function makeLorem(size = 100) {
 	return txt
 }
 
-
 function getRandomIntInclusive(min, max) {
 	min = Math.ceil(min)
 	max = Math.floor(max)
 	return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive
 }
 
-
 function padNum(num) {
 	return num > 9 ? num + '' : '0' + num
 }
-
 
 function getRandomColor() {
 	const letters = '0123456789ABCDEF'
@@ -87,7 +84,6 @@ function getRandomColor() {
 	}
 	return color
 }
-
 
 function getDayName(date, locale) {
 	date = new Date(date)
@@ -110,6 +106,19 @@ function getMonthName(date) {
 		'December',
 	]
 	return monthNames[date.getMonth()]
+}
+
+function getYear() {
+	const currDate = new Date()
+	return currDate.getFullYear()
+}
+
+function getMailDate(date) {
+	const formattedDate = new Date(date)
+	const day = formattedDate.getDate()
+	const month = getMonthName(formattedDate)
+	const mailDate = `${month} ${day}`
+	return mailDate
 }
 
 function animateCSS(el, animation) {

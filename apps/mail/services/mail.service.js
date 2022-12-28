@@ -95,6 +95,7 @@ function _createMails() {
 				body: 'Would love to catch up sometimes',
 				isRead: false,
 				sentAt: 1551133930594,
+				from: 'momo@momo.com',
 				to: 'momo@momo.com',
 			},
 			{
@@ -103,6 +104,7 @@ function _createMails() {
 				body: 'babadaboopi',
 				isRead: false,
 				sentAt: 1551133930594,
+				from: 'mario@mario.com',
 				to: 'mario@mario.com',
 			},
 			{
@@ -111,6 +113,7 @@ function _createMails() {
 				body: 'Take it easy, Luigi, things could be worse!',
 				isRead: false,
 				sentAt: 1551133930594,
+				from: 'luigi@luigi.com',
 				to: 'luigi@luigi.com',
 			},
 			{
@@ -119,6 +122,7 @@ function _createMails() {
 				body: 'our quest is over',
 				isRead: false,
 				sentAt: 1551133930594,
+				from: 'peach@peach.com',
 				to: 'peach@peach.com',
 			},
 		]
