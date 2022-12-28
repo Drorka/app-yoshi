@@ -1,7 +1,14 @@
-import { noteService } from '../services/note.service.jsx'
 
+export function NotePreview( { note } ) {
 
-export function NotePreview( { notes } ) {
+	return <section className="note-preview">
 
-	return <div>note preview</div>
+	<div>
+
+		<h1>{note.info.title}</h1>
+		<p>{note.info.txt}</p>
+
+	</div>
+
+	</section>
 }
