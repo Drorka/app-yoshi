@@ -23,14 +23,17 @@ export function NoteAdd() {
 
     return <section className="note-add">
 
-        <h1>Note Add</h1>
-
         <form onSubmit={onSubmitNote}>
+
             <input type="text" 
             name="txt"
             placeholder="Write something..."
             value={noteToAdd.txt}
             onChange={handleChange} />
+
+            <button onClick={onSubmitImg}></button>
+            <button onClick={onSubmitVideo}></button>
+            <button onClick={onSubmitTodos}></button>
         </form>
 
   </section>
