@@ -10,7 +10,7 @@ import { MailList } from '../cmps/mail-list.jsx'
 
 export function MailIndex() {
 	const [isLoading, setIsLoading] = useState(false)
-	const [filterBy, setFilterBy] = useState(mailService.getDefaultFilter())
+	const [filterBy, setFilterBy] = useState(mailService.getDefaultCriteria())
 	const [mails, setMails] = useState([])
 
 	useEffect(() => {
