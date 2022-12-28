@@ -7,10 +7,21 @@ export function AppHeader() {
 				<img src="../assets/img/mario-yoshi-ani.gif" alt="yoshi logo" />
 			</Link>
 			<nav>
-				<NavLink to="/">Home</NavLink>
-				<NavLink to="/mail">Mail</NavLink>
-				<NavLink to="/note">Note</NavLink>
-				<NavLink to="/about">About</NavLink>
+				<NavLink to="/">
+					<img src="../assets/img/icons/home_logo.png" alt="home" />
+				</NavLink>
+
+				<NavLink to="/mail">
+					<img src="../assets/img/icons/mail_logo.png" alt="mail" />
+				</NavLink>
+
+				<NavLink to="/note">
+					<img src="../assets/img/icons/keep_logo.png" alt="keep" />
+				</NavLink>
+
+				<NavLink to="/about">
+					<img src="../assets/img/icons/contacs_logo.png" alt="about" />
+				</NavLink>
 			</nav>
 		</header>
 	)

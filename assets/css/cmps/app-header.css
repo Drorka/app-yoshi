@@ -1,5 +1,6 @@
 header {
-    box-shadow: rgba(0, 0, 0, 0.027) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+    height: 65px;
+    margin: 0px 20px;
 }
 
 
@@ -14,11 +15,20 @@ header {
 nav a {
     font-size: 0.8rem;
     margin: 10px;
+    transition: transform .2s ease-in-out;
+
 }
 
 
-nav a:hover {
-    color: var(--clr8);
+nav a img {
+    height: 30px;
+    width: auto;
+    object-fit: cover;
+}
+
+
+nav a img:hover {
+    transform: scale(1.2);
 }
 
 
