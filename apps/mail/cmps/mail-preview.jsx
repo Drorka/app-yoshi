@@ -6,9 +6,17 @@ export function MailPreview({ mail }) {
 	return (
 		<article className="mail-preview flex">
 			<div className="mail-markers">
-				<button className="btn-mail-marker">&#9744;</button>
-				<button className="btn-mail-marker">&#9734;</button>
-				<button className="btn-mail-marker">&#9750;</button>
+				<button className="btn-mail-marker">
+					<span className="material-symbols-outlined">
+						check_box_outline_blank
+					</span>
+				</button>
+				<button className="btn-mail-marker">
+					<span className="material-symbols-outlined">star</span>
+				</button>
+				<button className="btn-mail-marker">
+					<span className="material-symbols-outlined">label_important</span>
+				</button>
 			</div>
 			<div className="mail-sender">{mail.from}</div>
 			<div className="mail-subject">{mail.subject}</div>
