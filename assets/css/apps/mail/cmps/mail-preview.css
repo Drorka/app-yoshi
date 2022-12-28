@@ -1,0 +1,15 @@
+/* .mail-preview {
+    display: inline-block;
+} */
+
+/* .mail-markers, .mail-sender, .mail-subject, .mail-body ,.mail-date, .mail-quick-crudl{
+    display: inline;
+} */
+
+button.btn-mail-marker {
+    border: none;
+    background-color: inherit;}
+
+.mail-date {
+    margin-left: auto;
+}
