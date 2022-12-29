@@ -103,7 +103,7 @@ function _createMails() {
 			{
 				id: utilService.makeId(),
 				subject: 'Its a-me, Mario!',
-				body: 'babadaboopi',
+				body: 'babadaboopi, boobidibapi! ',
 				isRead: false,
 				sentAt: 1551133930594,
 				removedAt: null,

@@ -55,6 +55,13 @@
     font-weight: 400;
 }
 
+/* body */
+.mail-body, .mail-subject {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: clip;
+}
+
 /* date */
 .mail-date {
     margin-left: auto;
@@ -72,7 +79,8 @@
 }
 
 .mail-preview:hover .mail-date {
-    opacity:0
+    opacity:0;
+    width:0px
 }
 
 /* crudl */
