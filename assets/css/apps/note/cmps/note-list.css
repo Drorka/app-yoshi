@@ -1,7 +1,6 @@
 .note-list {
-    margin: 20px 10px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    margin: 20px;
+    column-width: 280px;
+    column-count: auto;
+    gap: 1px;
 }
