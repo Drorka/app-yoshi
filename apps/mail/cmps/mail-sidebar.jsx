@@ -1,18 +1,32 @@
-const { Fragment, useEffect } = React
+const { useState, useEffect, useRef } = React
 
 const { useNavigate } = ReactRouterDOM
 
-export function MailSidebar() {
-	const navigate = useNavigate()
+import { mailService } from '../services/mail.service.js'
 
-	function onGoToFolder() {
-		console.log('go to', event.target.innerText)
-		const folder =
-			event.target.innerText.toLowerCase() === 'inbox'
-				? ''
-				: event.target.innerText.toLowerCase()
-		navigate(`/mail/${folder}`)
+export function MailSidebar({ onSetCriteria }) {
+	const [criteriaToEdit, setCriteriaToEdit] = useState(
+		mailService.getDefaultCriteria()
+	)
+
+	useEffect(() => {
+		// update father cmp that filters change very type
+		onSetCriteria(criteriaToEdit)
+	}, [criteriaToEdit])
+
+	function handleChange() {
+		let status = event.target.innerText.toLowerCase()
+
+		console.log(status)
+		// value = type === 'number' ? +value : value
+		setCriteriaToEdit((prevFilter) => ({ ...prevFilter, status: status }))
 	}
+
+	// function onSubmitCriteria() {
+	// 	console.log(event.target)
+	// 	// update father cmp that filters change on submit
+	// 	onSetCriteria(criteriaToEdit)
+	// }
 
 	return (
 		<section>
@@ -23,7 +37,7 @@ export function MailSidebar() {
 			<section className="mail-sidebar flex flex-column align-center">
 				<div
 					className="mail-sidebar-inbox flex align-center"
-					onClick={() => onGoToFolder()}
+					onClick={() => handleChange()}
 				>
 					<div className="mail-sidebar-inbox-icon">
 						<span className="material-symbols-outlined">inbox</span>{' '}
@@ -32,7 +46,7 @@ export function MailSidebar() {
 				</div>
 				<div
 					className="mail-sidebar-sent flex align-center"
-					onClick={() => onGoToFolder()}
+					onClick={() => handleChange()}
 				>
 					<div className="mail-sidebar-sent-icon">
 						<span className="material-symbols-outlined">send</span>{' '}
@@ -41,7 +55,7 @@ export function MailSidebar() {
 				</div>
 				<div
 					className="mail-sidebar-drafts flex align-center"
-					onClick={() => onGoToFolder()}
+					onClick={() => handleChange()}
 				>
 					<div className="mail-sidebar-drafts-icon">
 						<span className="material-symbols-outlined">draft</span>{' '}
@@ -50,7 +64,7 @@ export function MailSidebar() {
 				</div>
 				<div
 					className="mail-sidebar-trash flex align-center"
-					onClick={() => onGoToFolder()}
+					onClick={() => handleChange()}
 				>
 					<div className="mail-sidebar-trash-icon">
 						<span className="material-symbols-outlined">delete</span>{' '}

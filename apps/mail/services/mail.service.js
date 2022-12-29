@@ -23,15 +23,15 @@ export const mailService = {
 	getPrevMailId,
 }
 
-function query(filterBy = getDefaultCriteria()) {
+function query(criteria = getDefaultCriteria()) {
 	return asyncStorageService.query(MAIL_KEY).then((mails) => {
-		if (filterBy.txt) {
-			const regex = new RegExp(filterBy.txt, 'i')
+		if (criteria.txt) {
+			const regex = new RegExp(criteria.txt, 'i')
 			mails = mails.filter((mail) => regex.test(mail.title))
 		}
-		// if (filterBy.maxPrice) {
-		// 	mails = mails.filter((mail) => mail.listPrice.amount >= filterBy.maxPrice)
-		// }
+		if (criteria.status) {
+			mails = mails.filter((mail) => mail.status === criteria.status)
+		}
 		return mails
 	})
 }
@@ -85,7 +85,7 @@ function getEmptyMail(
 
 function getDefaultCriteria() {
 	const criteria = {
-		status: '',
+		status: 'inbox',
 		txt: '',
 	}
 	return criteria
@@ -99,6 +99,7 @@ function _createMails() {
 				id: utilService.makeId(),
 				subject: 'Miss you',
 				body: 'Would love to catch up sometimes',
+				status: 'inbox',
 				isRead: true,
 				sentAt: 1551133930594,
 				sender: 'momo',
@@ -109,6 +110,7 @@ function _createMails() {
 				id: utilService.makeId(),
 				subject: 'Its a-me, Mario!',
 				body: 'babadaboopi, boobidibapi! ',
+				status: 'sent',
 				isRead: false,
 				sentAt: 1551133930594,
 				removedAt: null,
@@ -120,6 +122,7 @@ function _createMails() {
 				id: utilService.makeId(),
 				subject: 'Mama mia...',
 				body: 'Take it easy, Luigi, things could be worse!',
+				status: 'inbox',
 				isRead: false,
 				sentAt: 1551133930594,
 				removedAt: null,
@@ -131,6 +134,7 @@ function _createMails() {
 				id: utilService.makeId(),
 				subject: 'Mario, help me!',
 				body: 'our quest is over',
+				status: 'inbox',
 				isRead: false,
 				sentAt: 1551133930594,
 				removedAt: null,
@@ -142,6 +146,7 @@ function _createMails() {
 				id: utilService.makeId(),
 				subject: 'This should FINISH you!',
 				body: 'All this power, and good looks too! I know what youre thinking...',
+				status: 'sent',
 				isRead: false,
 				sentAt: 1551133930594,
 				removedAt: null,
@@ -153,12 +158,25 @@ function _createMails() {
 				id: utilService.makeId(),
 				subject: 'Bwah hah hah!',
 				body: 'Mario! Prepare yourself for the great beyond! ',
+				status: 'trash',
 				isRead: false,
 				sentAt: 1551133930594,
 				removedAt: null,
 				sender: 'bowser',
 				from: 'bowser@bowser.com',
 				to: 'mario@mario.com',
+			},
+			{
+				id: utilService.makeId(),
+				subject: 'Its a-me, Mario!',
+				body: 'babadaboopi, boobidibapi! ',
+				status: 'drafts',
+				isRead: false,
+				sentAt: 1551133930594,
+				removedAt: null,
+				sender: 'mario',
+				from: 'mario@mario.com',
+				to: 'peach@peach.com',
 			},
 		]
 		storageService.saveToStorage(MAIL_KEY, mails)

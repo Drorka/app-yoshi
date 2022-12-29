@@ -10,23 +10,24 @@ import { MailList } from '../cmps/mail-list.jsx'
 
 export function MailIndex() {
 	const [isLoading, setIsLoading] = useState(false)
-	const [filterBy, setFilterBy] = useState(mailService.getDefaultCriteria())
+	const [criteria, setCriteria] = useState(mailService.getDefaultCriteria())
 	const [mails, setMails] = useState([])
 
 	useEffect(() => {
 		loadMails()
-	}, [filterBy])
+	}, [criteria])
 
 	function loadMails() {
 		setIsLoading(true)
-		mailService.query(filterBy).then((mails) => {
+		mailService.query(criteria).then((mails) => {
 			setMails(mails)
 			setIsLoading(false)
 		})
 	}
 
-	function onSetFilter(filterBy) {
-		setFilterBy(filterBy)
+	function onSetCriteria(criteria) {
+		console.log('criteria', criteria)
+		setCriteria(criteria)
 	}
 
 	function onRemoveMail(mailId) {
@@ -49,7 +50,7 @@ export function MailIndex() {
 		mailService
 			.remove(mailId)
 			.then(() => {
-				const updatedMails = mails.filter((mail) => mail.id !== mailId)
+				const updatedMails = mails.criteria((mail) => mail.id !== mailId)
 				setMails(updatedMails)
 				// showSuccessMsg('Mail removed')
 			})
@@ -61,9 +62,9 @@ export function MailIndex() {
 
 	return (
 		<section className="mail-index full main-layout flex">
-			<MailSidebar />
+			<MailSidebar onSetCriteria={onSetCriteria} />
 			<div className="mail-main-content">
-				<MailFilter onSetFilter={onSetFilter} />
+				<MailFilter onSetCriteria={onSetCriteria} />
 
 				{/* <Link to="/mail/edit">Add Book</Link> */}
 

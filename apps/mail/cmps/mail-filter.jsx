@@ -2,8 +2,8 @@ const { useState, useEffect, useRef } = React
 
 import { mailService } from '../services/mail.service.js'
 
-export function MailFilter({ onSetFilter }) {
-	const [filterByToEdit, setFilterByToEdit] = useState(
+export function MailFilter({ onSetCriteria }) {
+	const [criteriaToEdit, setCriteriaToEdit] = useState(
 		mailService.getDefaultCriteria()
 	)
 	const elInputRef = useRef(null)
@@ -14,31 +14,31 @@ export function MailFilter({ onSetFilter }) {
 
 	useEffect(() => {
 		// update father cmp that filters change very type
-		onSetFilter(filterByToEdit)
-	}, [filterByToEdit])
+		onSetCriteria(criteriaToEdit)
+	}, [criteriaToEdit])
 
 	function handleChange({ target }) {
 		let { value, name: field, type } = target
 		value = type === 'number' ? +value : value
-		setFilterByToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
+		setCriteriaToEdit((prevFilter) => ({ ...prevFilter, [field]: value }))
 	}
 
-	function onSubmitFilter(ev) {
+	function onSubmitCriteria(ev) {
 		// update father cmp that filters change on submit
 		ev.preventDefault()
-		onSetFilter(filterByToEdit)
+		onSetCriteria(criteriaToEdit)
 	}
 
 	return (
 		<section className="mail-filter full main-layout">
-			<form onSubmit={onSubmitFilter}>
+			<form onSubmit={onSubmitCriteria}>
 				<label htmlFor="subject"></label>
 				<input
 					type="text"
 					id="subject"
 					name="txt"
 					placeholder="Search email"
-					value={filterByToEdit.txt}
+					value={criteriaToEdit.txt}
 					onChange={handleChange}
 					ref={elInputRef}
 				/>
