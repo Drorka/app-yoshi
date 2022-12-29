@@ -10,6 +10,8 @@ export function MailPreview({ mail, onMoveMailTo, onMarkAs }) {
 
 	const read = mail.isRead ? 'read' : 'unread'
 
+	const markAsSymbol = mail.isRead ? 'mail' : 'drafts'
+
 	function onOpenMailDetails(mailId) {
 		console.log('link me to mail details', mailId)
 		navigate(`/mail/${mailId}`)
@@ -51,9 +53,8 @@ export function MailPreview({ mail, onMoveMailTo, onMarkAs }) {
 				<span
 					className="material-symbols-outlined"
 					onClick={() => onMarkAs(mail.id)}
-					title="Mark as read"
 				>
-					drafts
+					{markAsSymbol}
 				</span>
 			</div>
 		</article>
