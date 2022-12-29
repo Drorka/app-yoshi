@@ -36,3 +36,17 @@
     align-items: center;
     vertical-align: middle;
 } */
+
+.compose-mail {
+    background-color: #c2e7ff;
+    height: 55px;
+    width: 130px;
+    margin-left: 15px;
+    border-radius: 10px;
+    font-weight: 700;
+}
+
+.compose-mail:hover {
+    cursor: pointer;
+    box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
+}
