@@ -1,7 +1,6 @@
 .mail-sidebar {
     flex-grow: 1;
     min-width: 200px;
-    background-color: var(--mail-sidebar-bg);
     color: var(--mail-sidebar-txt);
     padding: 15px;
 }
@@ -10,30 +9,28 @@
     height: 32px;
     gap: 10px;
     width: 100%;
+    padding-left: 5px;
 }
 
 
 .mail-sidebar-inbox-icon, .mail-sidebar-sent-icon, .mail-sidebar-drafts-icon, .mail-sidebar-trash-icon {
     width: 20%;
+    margin-top: 10px;
 }
 
 .mail-sidebar-inbox-txt, .mail-sidebar-sent-txt, .mail-sidebar-drafts-txt, .mail-sidebar-trash-txt {
     width: 80%;
+    margin-top: 10px
 }
 
 .mail-sidebar-inbox:hover, .mail-sidebar-sent:hover, .mail-sidebar-drafts:hover, .mail-sidebar-trash:hover {
     cursor: pointer;
     background-color: var(--mail-sidebar-hover);
+    border-radius: 0px 15px 15px 0;
 }
 
-/* .mail-sidebar-inbox-txt, .mail-sidebar-sent-txt, .mail-sidebar-drafts-txt, .mail-sidebar-trash-txt {
-    align-self: center;
-    align-content: center;
-    align-items: center;
-    vertical-align: middle;
-}
 
-.mail-sidebar-inbox{
+/* .mail-sidebar-inbox{
     align-self: center;
     align-content: center;
     align-items: center;
