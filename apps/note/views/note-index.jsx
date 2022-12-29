@@ -61,15 +61,11 @@ export function NoteIndex() {
 
 
 	function duplicateNote(noteId) {
-		console.log('notes before', notes);
 		const noteIdx = notes.findIndex(note => note.id === noteId)
 
-		console.log('noteIdx', noteIdx);
-		const duplicateNote = { ...notes[noteIdx], id: utilService.makeId() }
+		const duplicateNote = { ...notes[noteIdx], id: '' }
 
-		console.log('duplicateNote', duplicateNote);
 		saveNote(duplicateNote)
-		console.log('notes after', notes);
 	}
 
     
