@@ -1,8 +1,9 @@
 const { useNavigate } = ReactRouterDOM
 
 import { utilService } from '../../../services/util.service.js'
+import { mailService } from '../services/mail.service.js'
 
-export function MailPreview({ mail, onMoveMailTo }) {
+export function MailPreview({ mail, onMoveMailTo, onMarkAs }) {
 	const navigate = useNavigate()
 
 	const mailDate = utilService.getMailDate(mail.sentAt)
@@ -47,7 +48,11 @@ export function MailPreview({ mail, onMoveMailTo }) {
 				>
 					delete
 				</span>
-				<span className="material-symbols-outlined" title="Mark as read">
+				<span
+					className="material-symbols-outlined"
+					onClick={() => onMarkAs(mail.id)}
+					title="Mark as read"
+				>
 					drafts
 				</span>
 			</div>

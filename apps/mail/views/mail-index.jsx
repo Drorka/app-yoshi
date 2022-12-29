@@ -50,6 +50,10 @@ export function MailIndex() {
 		mailService.changeFolder(mailId, folder).then(() => loadMails())
 	}
 
+	function onMarkAs(mailId) {
+		mailService.markAs(mailId).then(() => loadMails())
+	}
+
 	return (
 		<section className="mail-index full main-layout flex">
 			<MailSidebar onSetCriteria={onSetCriteria} />
@@ -58,7 +62,13 @@ export function MailIndex() {
 
 				{/* <Link to="/mail/edit">Add Book</Link> */}
 
-				{!isLoading && <MailList mails={mails} onMoveMailTo={onMoveMailTo} />}
+				{!isLoading && (
+					<MailList
+						mails={mails}
+						onMoveMailTo={onMoveMailTo}
+						onMarkAs={onMarkAs}
+					/>
+				)}
 				{isLoading && <div>Loading..</div>}
 				{!mails.length && <div>No mails to show..</div>}
 			</div>

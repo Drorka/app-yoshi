@@ -18,6 +18,7 @@ export const mailService = {
 	remove,
 	save,
 	changeFolder,
+	markAs,
 	getEmptyMail,
 	getDefaultCriteria,
 	getNextMailId,
@@ -75,6 +76,14 @@ function changeFolder(mailId, folder) {
 	const mailToMove = mails.find((mail) => mail.id === mailId)
 	mailToMove.status = folder
 	return save(mailToMove)
+}
+
+function markAs(mailId) {
+	const mails = storageService.loadFromStorage(MAIL_KEY)
+	const mailToMark = mails.find((mail) => mail.id === mailId)
+	console.log(mailToMark.isRead)
+	mailToMark.isRead = mailToMark.isRead ? false : true
+	return save(mailToMark)
 }
 
 function getEmptyMail(
