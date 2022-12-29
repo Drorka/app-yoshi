@@ -18,7 +18,7 @@ export function NoteIndex() {
 
 	useEffect(() => {
 		loadNotes()
-	}, [filterBy])
+	}, [])
 
 
 	function loadNotes() {
@@ -35,13 +35,28 @@ export function NoteIndex() {
 		setFilterBy(filterBy)
 	}
 
+
+	function saveNote(noteToSave) {
+		console.log('save note',noteToSave);
+		noteService.save(noteToSave)
+			.then(noteToSave => {
+				console.log(noteToSave)
+				setNotes(prevNotes => [...prevNotes, noteToSave])
+			})
+            .catch((err) => {
+                console.log('err:', err);
+
+            })
+    }
+
+
     
     return <section className="note-index">
 
 		<NoteFilter onSetFilter={onSetFilter} />
 
         <div className="note-index-add">
-            <NoteAdd />
+            <NoteAdd saveNote={saveNote}/>
         </div>
 
         <div className="note-index-list">

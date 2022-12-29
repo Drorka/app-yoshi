@@ -4,24 +4,14 @@ import { noteService } from '../services/note.service.js'
 import { asyncStorageService } from '../../../services/async-storage.service.js'
 
 
-export function NoteAdd() {
+export function NoteAdd( {saveNote}) {
 
     const [noteToSave , setNoteToSave] = useState(noteService.getEmptyNote())
-
-    useEffect(() =>{
-      loadBook()
-    } , [])
-
-
-  function loadBook() {
-    noteService.get()
-      .then((note) => setNoteToSave(note))
-  }
 
 
     function handleChange( { target } ) {
       let { value, name: field } = target
-      console.log(target);
+      
       setNoteToSave((prevNote) => 
         ({ ...prevNote, info: { [field]: value } }))
     } 
@@ -30,10 +20,7 @@ export function NoteAdd() {
     function onSaveNote(ev) {
         ev.preventDefault()
 
-        noteService.save(noteToSave)
-          .then((noteToSave) => {
-            console.log('note saved', noteToSave)
-      })
+        saveNote(noteToSave)
     }
 
 
