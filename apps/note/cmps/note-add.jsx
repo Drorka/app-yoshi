@@ -1,6 +1,7 @@
 const {useState , useEffect} = React
 
 import { noteService } from '../services/note.service.js'
+import { asyncStorageService } from '../../../services/async-storage.service.js'
 
 
 export function NoteAdd() {
@@ -9,7 +10,7 @@ export function NoteAdd() {
 
     useEffect(() =>{
       loadBook()
-    } , [noteToSave])
+    } , [])
 
 
   function loadBook() {
@@ -20,9 +21,9 @@ export function NoteAdd() {
 
     function handleChange( { target } ) {
       let { value, name: field } = target
-
+      console.log(target);
       setNoteToSave((prevNote) => 
-        ({ ...prevNote, [field]: value }))
+        ({ ...prevNote, info: { [field]: value } }))
     } 
 
 

@@ -35,6 +35,7 @@ function query(filterBy = getDefaultFilter()) {
 
 
 function get(noteId) {
+    console.log('get noteid', noteId)
     return asyncStorageService.get(NOTE_KEY, noteId)
     
 }
@@ -57,27 +58,33 @@ function remove(noteId) {
 
 function save(note) {
     if (note.id) {
+        console.log('save note', note);
         return asyncStorageService.put(NOTE_KEY, note)
     } else {
+        console.log('post note', note);
         return asyncStorageService.post(NOTE_KEY, note)
     }
 }
 
 
-function getEmptyNote(txtFromUser, date) {
-    return {
-        id: utilService.makeId(), 
-        createdAt: utilService.getMailDate(date),
-        type: "note-txt", 
-        isPinned: true, 
-        info: { 
-            title: "",
-            txt: txtFromUser,
-        } ,
-        style: { 
-            backgroundColor: utilService.getRandomColor()
-        } 
-    }
+// function getEmptyNote(txtFromUser, date) {
+//     return {
+//         id: utilService.makeId(), 
+//         createdAt: utilService.getMailDate(date),
+//         type: "note-txt", 
+//         isPinned: true, 
+//         info: { 
+//             title: "",
+//             txt: txtFromUser,
+//         } ,
+//         style: { 
+//             backgroundColor: utilService.getRandomColor()
+//         } 
+//     }
+// }
+
+function getEmptyNote(id = '', type = '', isPinned = false, info = {title:'', txt: '' }) {
+    return { id, type, isPinned, info }
 }
 
 
@@ -88,6 +95,7 @@ function getDefaultFilter() {
 
 function createNotes() {
     let notes = storageService.loadFromStorage(NOTE_KEY)
+    console.log('load storageService', notes)
 
     if (!notes || !notes.length) {
         notes =  [
@@ -135,6 +143,7 @@ function createNotes() {
         } 
     ]
         storageService.saveToStorage(NOTE_KEY, notes)
+        console.log('save to storageService', notes)
     }
 }
 
