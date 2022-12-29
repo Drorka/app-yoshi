@@ -1,9 +1,14 @@
 const { Fragment } = React
 
 
-export function NotePreview( { note } ) {
+export function NotePreview( { note, deleteNote } ) {
 
 	// const isPinned = note.isPinned ? 'is-pinned' : 'is-not-pinned'
+
+    // function onDeleteNote(ev) {
+	// 	deleteNote(noteToSave)
+	// }
+
 
 	return <Fragment>
 	<section className="note-preview">
@@ -27,7 +32,7 @@ export function NotePreview( { note } ) {
 
 			<button className="material-symbols-outlined">palette</button>
 
-			<button className="material-symbols-outlined">delete</button>
+			<button className="material-symbols-outlined" onClick={() => deleteNote(note.id)} >delete</button>
 			
 		</div>
 

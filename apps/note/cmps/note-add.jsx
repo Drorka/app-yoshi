@@ -28,7 +28,7 @@ export function NoteAdd( {saveNote}) {
 
         <form onSubmit={onSaveNote}>
 
-            <input type="text" 
+            <input type="note-txt" 
             name="txt"
             placeholder="Write something..."
             value={noteToSave.info.txt}

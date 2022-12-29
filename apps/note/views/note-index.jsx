@@ -37,15 +37,24 @@ export function NoteIndex() {
 
 
 	function saveNote(noteToSave) {
-		console.log('save note',noteToSave);
 		noteService.save(noteToSave)
 			.then(noteToSave => {
-				console.log(noteToSave)
 				setNotes(prevNotes => [...prevNotes, noteToSave])
 			})
             .catch((err) => {
-                console.log('err:', err);
+                console.log('err:', err)
+            })
+    }
 
+
+	function deleteNote(noteId) {
+		noteService.remove(noteId)
+			.then(() => {
+				const updatedNotes = notes.filter(note => note.id !== noteId)
+				setNotes(updatedNotes)
+			})
+            .catch((err) => {
+                console.log('err:', err)
             })
     }
 
@@ -56,11 +65,11 @@ export function NoteIndex() {
 		<NoteFilter onSetFilter={onSetFilter} />
 
         <div className="note-index-add">
-            <NoteAdd saveNote={saveNote}/>
+            <NoteAdd saveNote={saveNote} />
         </div>
 
         <div className="note-index-list">
-			{!isLoading && <NoteList notes={notes} />}
+			{!isLoading && <NoteList notes={notes} deleteNote={deleteNote} />}
 			{isLoading && <div><Loader /></div>}
         </div>
 
