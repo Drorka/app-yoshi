@@ -1,3 +1,10 @@
+.mail-main-content {
+    background-color: #fff;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    border-radius: 12px;
+}
+
 .mail-list {
     flex-grow: 4;
 }

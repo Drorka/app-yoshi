@@ -55,13 +55,6 @@
     font-weight: 400;
 }
 
-/* body */
-.mail-body, .mail-subject {
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: clip;
-}
-
 /* date */
 .mail-date {
     margin-left: auto;
@@ -98,4 +91,11 @@
 
 .mail-preview:hover .mail-quick-crudl  {
     display:block;
+}
+
+/* no overflow */
+.mail-body, .mail-subject, .mail-date, .mail-quick-crudl {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: clip;
 }
