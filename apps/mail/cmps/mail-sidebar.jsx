@@ -1,10 +1,8 @@
 const { useState, useEffect, useRef } = React
 
-const { useNavigate } = ReactRouterDOM
-
 import { mailService } from '../services/mail.service.js'
 
-export function MailSidebar({ onSetCriteria }) {
+export function MailSidebar({ onSetCriteria, unreadAmount }) {
 	const [criteriaToEdit, setCriteriaToEdit] = useState(
 		mailService.getDefaultCriteria()
 	)
@@ -15,9 +13,9 @@ export function MailSidebar({ onSetCriteria }) {
 	}, [criteriaToEdit])
 
 	function handleChange() {
-		let status = event.target.innerText.toLowerCase()
+		let status = event.target.innerText.split(' ')[0].toLowerCase()
 
-		console.log(status)
+		console.log(event.target)
 		// value = type === 'number' ? +value : value
 		setCriteriaToEdit((prevFilter) => ({ ...prevFilter, status: status }))
 	}
@@ -42,7 +40,9 @@ export function MailSidebar({ onSetCriteria }) {
 					<div className="mail-sidebar-inbox-icon">
 						<span className="material-symbols-outlined">inbox</span>{' '}
 					</div>
-					<div className="mail-sidebar-inbox-txt">Inbox</div>
+					<div className="mail-sidebar-inbox-txt flex">
+						Inbox {unreadAmount}
+					</div>
 				</div>
 				<div
 					className="mail-sidebar-sent flex align-center"

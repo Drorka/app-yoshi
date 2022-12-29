@@ -50,3 +50,8 @@
     cursor: pointer;
     box-shadow: 0 1px 3px 0 rgb(60 64 67 / 30%), 0 4px 8px 3px rgb(60 64 67 / 15%);
 }
+
+.unread-amount {
+    text-align: end;
+    padding-right: 12px;
+}

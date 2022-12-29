@@ -54,9 +54,13 @@ export function MailIndex() {
 		mailService.markAs(mailId).then(() => loadMails())
 	}
 
+	const unreadAmount = mails.filter(
+		(mail) => mail.status === 'inbox' && mail.isRead === false
+	).length
+
 	return (
 		<section className="mail-index full main-layout flex">
-			<MailSidebar onSetCriteria={onSetCriteria} />
+			<MailSidebar onSetCriteria={onSetCriteria} unreadAmount={unreadAmount} />
 			<div className="mail-main-content">
 				<MailFilter onSetCriteria={onSetCriteria} />
 
