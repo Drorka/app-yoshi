@@ -2,7 +2,7 @@ const { useNavigate } = ReactRouterDOM
 
 import { utilService } from '../../../services/util.service.js'
 
-export function MailPreview({ mail, onMoveMailToTrash }) {
+export function MailPreview({ mail, onMoveMailTo }) {
 	const navigate = useNavigate()
 
 	const mailDate = utilService.getMailDate(mail.sentAt)
@@ -42,7 +42,7 @@ export function MailPreview({ mail, onMoveMailToTrash }) {
 			<div className="mail-quick-crudl">
 				<span
 					className="material-symbols-outlined"
-					onClick={() => onMoveMailToTrash(mail.id)}
+					onClick={() => onMoveMailTo(mail.id, 'trash')}
 					title="Move to trash"
 				>
 					delete

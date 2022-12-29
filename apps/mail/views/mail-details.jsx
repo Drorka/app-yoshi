@@ -31,7 +31,7 @@ export function MailDetails() {
 
 	return (
 		<section className="mail-details full main-layout flex">
-			<MailSidebar />
+			{/* <MailSidebar /> */}
 			<div className="mail-main-content">
 				<div className="mail-details-title">
 					<h2>{mail.subject}</h2>

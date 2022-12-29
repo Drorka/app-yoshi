@@ -12,6 +12,7 @@ export function MailIndex() {
 	const [isLoading, setIsLoading] = useState(false)
 	const [criteria, setCriteria] = useState(mailService.getDefaultCriteria())
 	const [mails, setMails] = useState([])
+	const [mailToEdit, setMailToEdit] = useState(mailService.getEmptyMail())
 
 	useEffect(() => {
 		loadMails()
@@ -26,7 +27,6 @@ export function MailIndex() {
 	}
 
 	function onSetCriteria(criteria) {
-		console.log('criteria', criteria)
 		setCriteria(criteria)
 	}
 
@@ -45,19 +45,9 @@ export function MailIndex() {
 			})
 	}
 
-	function onMoveMailToTrash(mailId) {
-		console.log('move this mail to trash', mailId)
-		mailService
-			.remove(mailId)
-			.then(() => {
-				const updatedMails = mails.criteria((mail) => mail.id !== mailId)
-				setMails(updatedMails)
-				// showSuccessMsg('Mail removed')
-			})
-			.catch((err) => {
-				console.log('Had issues removing', err)
-				// showErrorMsg('Could not remove mail')
-			})
+	function onMoveMailTo(mailId, folder) {
+		console.log(mailId, folder)
+		mailService.changeFolder(mailId, folder).then(() => loadMails())
 	}
 
 	return (
@@ -68,9 +58,7 @@ export function MailIndex() {
 
 				{/* <Link to="/mail/edit">Add Book</Link> */}
 
-				{!isLoading && (
-					<MailList mails={mails} onMoveMailToTrash={onMoveMailToTrash} />
-				)}
+				{!isLoading && <MailList mails={mails} onMoveMailTo={onMoveMailTo} />}
 				{isLoading && <div>Loading..</div>}
 				{!mails.length && <div>No mails to show..</div>}
 			</div>

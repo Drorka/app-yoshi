@@ -17,6 +17,7 @@ export const mailService = {
 	get,
 	remove,
 	save,
+	changeFolder,
 	getEmptyMail,
 	getDefaultCriteria,
 	getNextMailId,
@@ -69,18 +70,34 @@ function save(mail) {
 	}
 }
 
+function changeFolder(mailId, folder) {
+	const mails = storageService.loadFromStorage(MAIL_KEY)
+	const mailToMove = mails.find((mail) => mail.id === mailId)
+	mailToMove.status = folder
+	return save(mailToMove)
+}
+
 function getEmptyMail(
-	title = '',
-	description = '',
-	thumbnail = '',
-	listPrice = {
-		amount: '',
-		currencyCode: 'EUR',
-		isOnSale: false,
-	},
-	reviews = []
+	subject = '',
+	body = '',
+	status = '',
+	isRead = null,
+	sentAt = null,
+	sender = '',
+	from = '',
+	to = ''
 ) {
-	return { id: '', title, description, thumbnail, listPrice, reviews }
+	return {
+		id: '',
+		subject,
+		body,
+		status,
+		isRead,
+		sentAt,
+		sender,
+		from,
+		to,
+	}
 }
 
 function getDefaultCriteria() {
