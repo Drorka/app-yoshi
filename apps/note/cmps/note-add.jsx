@@ -5,13 +5,24 @@ import { noteService } from '../services/note.service.js'
 
 export function NoteAdd() {
 
-  const [noteToSave , setNoteToSave] = useState(noteService.createNote())
+    const [noteToSave , setNoteToSave] = useState(noteService.getEmptyNote())
+
+    useEffect(() =>{
+      loadBook()
+    } , [noteToSave])
 
 
-  function handleChange( { target } ) {
-    let { value, name: field } = target
+  function loadBook() {
+    noteService.get()
+      .then((note) => setNoteToSave(note))
+  }
 
-    setNoteToSave((prevNote) => ({ ...prevNote, [field]: value }))
+
+    function handleChange( { target } ) {
+      let { value, name: field } = target
+
+      setNoteToSave((prevNote) => 
+        ({ ...prevNote, [field]: value }))
     } 
 
 
@@ -19,8 +30,8 @@ export function NoteAdd() {
         ev.preventDefault()
 
         noteService.save(noteToSave)
-          .then((note) => {
-            console.log('note saved')
+          .then((noteToSave) => {
+            console.log('note saved', noteToSave)
       })
     }
 
@@ -32,7 +43,7 @@ export function NoteAdd() {
             <input type="text" 
             name="txt"
             placeholder="Write something..."
-            value={noteToSave.txt}
+            value={noteToSave.info.txt}
             onChange={handleChange} />
 
             <div className="input-btns">

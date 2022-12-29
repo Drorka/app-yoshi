@@ -8,7 +8,7 @@
 
 
     min-width: 200px;
-    min-height: 120px;
+    min-height: 80px;
 
     break-inside: avoid;
     line-break: anywhere;
@@ -19,11 +19,27 @@
 .note-preview h1 {
     font-size: 1rem;
     font-weight: 800;
+    margin: 0px;
+}
+
+.note-preview h2 {
+    font-size: 0.9rem;
+    font-weight: 800;
+    padding: 0px;
+    margin: 16px 0px;
 }
 
 
 .note-preview p {
     font-size: 0.8rem;
+    margin: 14px 0px 0px;
+}
+
+
+.note-preview img {
+    max-width: 260px;
+    height: fit-content;
+    margin: 0px 0px 16px 0px;
 }
 
 
@@ -63,4 +79,13 @@
 
 .note-preview:hover .note-editor button, .note-preview:hover .pin-btn {
     opacity: 50%;
+}
+
+.is-pinned  {
+    opacity: 60%;
+}
+
+
+.is-not-pinned  {
+    opacity: 0%;
 }

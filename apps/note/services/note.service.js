@@ -64,13 +64,19 @@ function save(note) {
 }
 
 
-function getEmptyNote() {
+function getEmptyNote(txtFromUser, date) {
     return {
-        type: 'note-txt',
-        isPinned: false,
-        info: {
-            txt: ''
-        }
+        id: utilService.makeId(), 
+        createdAt: utilService.getMailDate(date),
+        type: "note-txt", 
+        isPinned: true, 
+        info: { 
+            title: "",
+            txt: txtFromUser,
+        } ,
+        style: { 
+            backgroundColor: utilService.getRandomColor()
+        } 
     }
 }
 
@@ -87,38 +93,44 @@ function createNotes() {
         notes =  [
         { 
             id: "n101", 
+            createdAt: 1112222,
             type: "note-txt", 
             isPinned: true, 
             info: { 
-                txt: "Fullstack Me Baby!" 
+                title: "",
+                txt: "The version of Yoshi seen in the Super Mario Bros!",
             } ,
             style: { 
-                backgroundColor: "#00d" 
+                backgroundColor: "#F8B95F" 
             } 
         }, 
         { 
-            id: "n102", 
+            id: "n102",
+            createdAt: 11134522,
             type: "note-img", 
+            isPinned: false, 
             info: { 
-                url: "http://some-img/me", 
-                title: "Bobi and Me" 
+                title: "Mario and Yoshi Flying",
+                url: "https://mario.wiki.gallery/images/5/5f/Marioyoshismw.png", 
             }, 
             style: { 
-                backgroundColor: "#00d" 
+                backgroundColor: "#2ABAE3" 
             } 
         }, 
         { 
             id: "n103", 
+            createdAt: 11334562,
             type: "note-todos", 
+            isPinned: false, 
             info: { 
                 label: "Get my stuff together", 
                 todos: [ 
-                    { txt: "Driving liscence", doneAt: null }, 
-                    { txt: "Coding power", doneAt: 187111111 },
+                    { txt: "Get the stone", doneAt: null }, 
+                    { txt: "Help Mario", doneAt: 187111111 },
                 ] 
             },
             style: { 
-                backgroundColor: "#00d" 
+                backgroundColor: "#8D4825" 
             } 
         } 
     ]
@@ -127,8 +139,7 @@ function createNotes() {
 }
 
 
-function createNote(vendor, maxSpeed = 250) {
-    const note = getEmptyNote(vendor, maxSpeed)
-    note.id = utilService.makeId()
+function createNote(txt) {
+    const note = getEmptyNote(txt)
     return note
 }

@@ -12,6 +12,7 @@ export const utilService = {
 	animateCSS,
 }
 
+
 function makeId(length = 6) {
 	var txt = ''
 	var possible =
@@ -23,6 +24,7 @@ function makeId(length = 6) {
 
 	return txt
 }
+
 
 function makeLorem(size = 100) {
 	var words = [
@@ -67,15 +69,18 @@ function makeLorem(size = 100) {
 	return txt
 }
 
+
 function getRandomIntInclusive(min, max) {
 	min = Math.ceil(min)
 	max = Math.floor(max)
 	return Math.floor(Math.random() * (max - min + 1)) + min //The maximum is inclusive and the minimum is inclusive
 }
 
+
 function padNum(num) {
 	return num > 9 ? num + '' : '0' + num
 }
+
 
 function getRandomColor() {
 	const letters = '0123456789ABCDEF'
@@ -86,10 +91,12 @@ function getRandomColor() {
 	return color
 }
 
+
 function getDayName(date, locale) {
 	date = new Date(date)
 	return date.toLocaleDateString(locale, { weekday: 'long' })
 }
+
 
 function getMonthName(date) {
 	const monthNames = [
@@ -109,10 +116,12 @@ function getMonthName(date) {
 	return monthNames[date.getMonth()]
 }
 
+
 function getYear(date) {
 	const currDate = new Date(date)
 	return currDate.getFullYear()
 }
+
 
 function getMailDate(date) {
 	const formattedDate = new Date(date)
@@ -130,6 +139,7 @@ function getFullMailDate(date) {
 	const fullMailDate = `${month} ${day} ${year}`
 	return fullMailDate
 }
+
 
 function animateCSS(el, animation) {
 	const prefix = 'animate__'

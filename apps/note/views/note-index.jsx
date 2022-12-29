@@ -35,23 +35,6 @@ export function NoteIndex() {
 		setFilterBy(filterBy)
 	}
 
-	function onRemoveNotes(noteId) {
-		console.log('remove note', noteId)
-
-		noteService
-			.remove(noteId)
-			.then(() => {
-				const updatedNotes = notes.filter((note) => note.id !== noteId)
-				setBooks(updatedNotes)
-				showSuccessMsg('Removed')
-			})
-
-			.catch((err) => {
-				console.log('Had issues removing', err)
-				showErrorMsg('Could not remove')
-			})
-	}
-
     
     return <section className="note-index">
 
