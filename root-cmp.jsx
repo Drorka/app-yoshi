@@ -10,8 +10,6 @@ import { About } from './views/about.jsx'
 import { MailIndex } from './apps/mail/views/mail-index.jsx'
 import { MailDetails } from './apps/mail/views/mail-details.jsx'
 import { MailEdit } from './apps/mail/views/mail-edit.jsx'
-import { MailSent } from './apps/mail/views/mail-sent.jsx'
-import { MailTrash } from './apps/mail/views/mail-trash.jsx'
 
 import { NoteIndex } from './apps/note/views/note-index.jsx'
 import { NoteDetails } from './apps/note/views/note-details.jsx'
@@ -25,9 +23,6 @@ export function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/mail" element={<MailIndex />} />
-					<Route path="/mail/sent" element={<MailSent />} />
-					<Route path="/mail/trash" element={<MailTrash />} />
-					<Route path="/mail/:mailId" element={<MailDetails />} />
 					{/* edit should be nested under list */}
 					<Route path="/mail/edit/:mailId" element={<MailEdit />} />
 
