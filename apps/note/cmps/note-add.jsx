@@ -1,38 +1,26 @@
 const {useState , useEffect} = React
 
 import { noteService } from '../services/note.service.js'
+import { asyncStorageService } from '../../../services/async-storage.service.js'
 
 
-export function NoteAdd() {
+export function NoteAdd( {saveNote}) {
 
     const [noteToSave , setNoteToSave] = useState(noteService.getEmptyNote())
-
-    useEffect(() =>{
-      loadBook()
-    } , [noteToSave])
-
-
-  function loadBook() {
-    noteService.get()
-      .then((note) => setNoteToSave(note))
-  }
 
 
     function handleChange( { target } ) {
       let { value, name: field } = target
-
+      
       setNoteToSave((prevNote) => 
-        ({ ...prevNote, [field]: value }))
+        ({ ...prevNote, info: { [field]: value } }))
     } 
 
 
     function onSaveNote(ev) {
         ev.preventDefault()
 
-        noteService.save(noteToSave)
-          .then((noteToSave) => {
-            console.log('note saved', noteToSave)
-      })
+        saveNote(noteToSave)
     }
 
 

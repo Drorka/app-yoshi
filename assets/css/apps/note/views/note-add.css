@@ -23,6 +23,7 @@
     width: 344px;
     height: auto;
     border: none;
+    cursor: text;
     background-color: transparent;
     display: inline-block;
     outline: none;
@@ -30,7 +31,7 @@
     padding: auto 0px;
     position: absolute;
     top: 50%;              
-    transform: translate(0, -50%)
+    transform: translate(0, -50%);
 }
 
 
