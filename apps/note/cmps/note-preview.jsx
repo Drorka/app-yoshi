@@ -1,13 +1,11 @@
 const { Fragment } = React
 
+import { noteService } from '../services/note.service.js'
 
-export function NotePreview( { note, deleteNote } ) {
+
+export function NotePreview( { note, deleteNote, duplicateNote } ) {
 
 	// const isPinned = note.isPinned ? 'is-pinned' : 'is-not-pinned'
-
-    // function onDeleteNote(ev) {
-	// 	deleteNote(noteToSave)
-	// }
 
 
 	return <Fragment>
@@ -28,7 +26,8 @@ export function NotePreview( { note, deleteNote } ) {
 
 		<div className="note-editor">
 
-			<button className="material-symbols-outlined">file_copy</button>
+			<button className="material-symbols-outlined"
+			onClick={() => duplicateNote(note.id)} >file_copy</button>
 
 			<button className="material-symbols-outlined">palette</button>
 

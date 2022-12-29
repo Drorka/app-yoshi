@@ -3,6 +3,7 @@ const { Link } = ReactRouterDOM
 
 import { Loader } from '../../../cmps/loader'
 import { noteService } from '../services/note.service.js'
+import { utilService } from '../../../services/util.service.js'
 
 import { NoteAdd } from '../cmps/note-add.jsx'
 import { NoteList } from '../cmps/note-list.jsx'
@@ -59,6 +60,18 @@ export function NoteIndex() {
     }
 
 
+	function duplicateNote(noteId) {
+		console.log('notes before', notes);
+		const noteIdx = notes.findIndex(note => note.id === noteId)
+
+		console.log('noteIdx', noteIdx);
+		const duplicateNote = { ...notes[noteIdx], id: utilService.makeId() }
+
+		console.log('duplicateNote', duplicateNote);
+		saveNote(duplicateNote)
+		console.log('notes after', notes);
+	}
+
     
     return <section className="note-index">
 
@@ -69,7 +82,7 @@ export function NoteIndex() {
         </div>
 
         <div className="note-index-list">
-			{!isLoading && <NoteList notes={notes} deleteNote={deleteNote} />}
+			{!isLoading && <NoteList notes={notes} deleteNote={deleteNote} duplicateNote={duplicateNote} />}
 			{isLoading && <div><Loader /></div>}
         </div>
 
