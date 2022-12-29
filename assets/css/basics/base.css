@@ -7,7 +7,7 @@
 
 body {
     margin: 0;
-    background-color: var(--clr1);
+    background-color: #ffffff;
     font-family: 'Open Sans', sans-serif;
     color: var(--clr8);
 }

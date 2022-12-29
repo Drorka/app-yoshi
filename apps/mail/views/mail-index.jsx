@@ -31,17 +31,32 @@ export function MailIndex() {
 
 	function onRemoveMail(mailId) {
 		console.log('remove this mail', mailId)
-		// bookService
-		// 	.remove(bookId)
-		// 	.then(() => {
-		// 		const updatedBooks = books.filter((book) => book.id !== bookId)
-		// 		setBooks(updatedBooks)
-		// 		showSuccessMsg('Book removed')
-		// 	})
-		// 	.catch((err) => {
-		// 		console.log('Had issues removing', err)
-		// 		showErrorMsg('Could not remove book')
-		// 	})
+		mailService
+			.remove(mailId)
+			.then(() => {
+				const updatedMails = mails.filter((mail) => mail.id !== mailId)
+				setMails(updatedMails)
+				// showSuccessMsg('Mail removed')
+			})
+			.catch((err) => {
+				console.log('Had issues removing', err)
+				// showErrorMsg('Could not remove mail')
+			})
+	}
+
+	function onMoveMailToTrash(mailId) {
+		console.log('move this mail to trash', mailId)
+		mailService
+			.remove(mailId)
+			.then(() => {
+				const updatedMails = mails.filter((mail) => mail.id !== mailId)
+				setMails(updatedMails)
+				// showSuccessMsg('Mail removed')
+			})
+			.catch((err) => {
+				console.log('Had issues removing', err)
+				// showErrorMsg('Could not remove mail')
+			})
 	}
 
 	return (
@@ -52,7 +67,9 @@ export function MailIndex() {
 
 				{/* <Link to="/mail/edit">Add Book</Link> */}
 
-				{!isLoading && <MailList mails={mails} onRemoveMail={onRemoveMail} />}
+				{!isLoading && (
+					<MailList mails={mails} onMoveMailToTrash={onMoveMailToTrash} />
+				)}
 				{isLoading && <div>Loading..</div>}
 				{!mails.length && <div>No mails to show..</div>}
 			</div>

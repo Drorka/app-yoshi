@@ -2,7 +2,7 @@ const { useNavigate } = ReactRouterDOM
 
 import { utilService } from '../../../services/util.service.js'
 
-export function MailPreview({ mail }) {
+export function MailPreview({ mail, onMoveMailToTrash }) {
 	const navigate = useNavigate()
 
 	const mailDate = utilService.getMailDate(mail.sentAt)
@@ -15,10 +15,7 @@ export function MailPreview({ mail }) {
 	}
 
 	return (
-		<article
-			className={'mail-preview flex align-center ' + read}
-			onClick={() => onOpenMailDetails(mail.id)}
-		>
+		<article className={'mail-preview flex align-center ' + read}>
 			<div className="mail-markers flex space-around">
 				<span className="material-symbols-outlined">
 					check_box_outline_blank
@@ -26,12 +23,28 @@ export function MailPreview({ mail }) {
 				<span className="material-symbols-outlined">star</span>
 				<span className="material-symbols-outlined">label_important</span>
 			</div>
-			<div className={'mail-sender ' + read}>{mail.from}</div>
-			<div className={'mail-subject ' + read}>{mail.subject}</div>
-			<div className="mail-body">- {mail.body}</div>
+			<div
+				className={'mail-sender ' + read}
+				onClick={() => onOpenMailDetails(mail.id)}
+			>
+				{mail.from}
+			</div>
+			<div
+				className={'mail-subject ' + read}
+				onClick={() => onOpenMailDetails(mail.id)}
+			>
+				{mail.subject}
+			</div>
+			<div className="mail-body" onClick={() => onOpenMailDetails(mail.id)}>
+				- {mail.body}
+			</div>
 			<div className={'mail-date ' + read}>{mailDate}</div>
 			<div className="mail-quick-crudl">
-				<span className="material-symbols-outlined" title="Move to trash">
+				<span
+					className="material-symbols-outlined"
+					onClick={() => onMoveMailToTrash(mail.id)}
+					title="Move to trash"
+				>
 					delete
 				</span>
 				<span className="material-symbols-outlined" title="Mark as read">

@@ -7,6 +7,11 @@ import { asyncStorageService } from '../../../services/async-storage.service.js'
 const MAIL_KEY = 'mailDB'
 _createMails()
 
+const loggedinUser = {
+	email: 'mario@mario.com',
+	fullname: 'Mario Mario',
+}
+
 export const mailService = {
 	query,
 	get,
@@ -98,7 +103,7 @@ function _createMails() {
 				sentAt: 1551133930594,
 				sender: 'momo',
 				from: 'momo@momo.com',
-				to: 'momo@momo.com',
+				to: 'mario@mario.com',
 			},
 			{
 				id: utilService.makeId(),
@@ -109,7 +114,7 @@ function _createMails() {
 				removedAt: null,
 				sender: 'mario',
 				from: 'mario@mario.com',
-				to: 'mario@mario.com',
+				to: 'peach@peach.com',
 			},
 			{
 				id: utilService.makeId(),
@@ -120,7 +125,7 @@ function _createMails() {
 				removedAt: null,
 				sender: 'luigi',
 				from: 'luigi@luigi.com',
-				to: 'luigi@luigi.com',
+				to: 'mario@mario.com',
 			},
 			{
 				id: utilService.makeId(),
@@ -131,7 +136,29 @@ function _createMails() {
 				removedAt: null,
 				sender: 'peach',
 				from: 'peach@peach.com',
-				to: 'peach@peach.com',
+				to: 'mario@mario.com',
+			},
+			{
+				id: utilService.makeId(),
+				subject: 'This should FINISH you!',
+				body: 'All this power, and good looks too! I know what youre thinking...',
+				isRead: false,
+				sentAt: 1551133930594,
+				removedAt: null,
+				sender: 'mario',
+				from: 'mario@mario.com',
+				to: 'bowser@bowser.com',
+			},
+			{
+				id: utilService.makeId(),
+				subject: 'Bwah hah hah!',
+				body: 'Mario! Prepare yourself for the great beyond! ',
+				isRead: false,
+				sentAt: 1551133930594,
+				removedAt: null,
+				sender: 'bowser',
+				from: 'bowser@bowser.com',
+				to: 'mario@mario.com',
 			},
 		]
 		storageService.saveToStorage(MAIL_KEY, mails)
