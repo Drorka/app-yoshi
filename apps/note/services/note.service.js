@@ -56,6 +56,7 @@ function remove(noteId) {
 
 
 function save(note) {
+    console.log('save', note);
     if (note.id) {
         return asyncStorageService.put(NOTE_KEY, note)
     } else {
