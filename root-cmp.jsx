@@ -22,16 +22,17 @@ export function App() {
 				<AppHeader />
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/mail" element={<MailIndex />} />
-					<Route path="/mail/:mailId" element={<MailDetails />} />
-					{/* edit should be nested under list */}
-					<Route path="/mail/edit/:mailId" element={<MailEdit />} />
 
-					<Route path="/note" element={<NoteIndex />} />
-					<Route path="/note/:noteId" element={<NoteDetails />} />
+					<Route element={<MailIndex />} path="/mail" />
+					<Route element={<MailDetails />} path="/mail/:mailId" />
 					{/* edit should be nested under list */}
-					<Route path="/note/edit/:noteId" element={<NoteEdit />} />
-					<Route path="/about" element={<About />} />
+					<Route element={<MailEdit />} path="/mail/edit/:mailId" />
+
+					<Route element={<NoteIndex />} path="/note" />
+					<Route element={<NoteDetails />} path="/note/:noteId" />
+					{/* edit should be nested under list */}
+					<Route element={<NoteEdit />} path="/note/edit/:noteId" />
+					<Route element={<About />} path="/about" />
 				</Routes>
 			</section>
 		</Router>
