@@ -1,3 +1,10 @@
 .mail-main-content {
     flex-grow: 4;
+    max-width: 80vw;
+    min-height: 80vh;
+    background-color: #fff;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    margin-right: 10px;
+    border-radius: 12px;
 }

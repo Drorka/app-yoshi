@@ -1,6 +1,6 @@
 .mail-sidebar {
     flex-grow: 1;
-    min-width: 200px;
+    min-width: 20vw;
     color: var(--mail-sidebar-txt);
     padding: 15px;
 }

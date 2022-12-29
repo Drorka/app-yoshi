@@ -44,14 +44,14 @@ export function MailPreview({ mail, onMoveMailTo, onMarkAs }) {
 			<div className={'mail-date ' + read}>{mailDate}</div>
 			<div className="mail-quick-crudl">
 				<span
-					className="material-symbols-outlined"
+					className="material-symbols-outlined move-to-trash-icon"
 					onClick={() => onMoveMailTo(mail.id, 'trash')}
 					title="Move to trash"
 				>
 					delete
 				</span>
 				<span
-					className="material-symbols-outlined"
+					className="material-symbols-outlined mark-as-icon"
 					onClick={() => onMarkAs(mail.id)}
 				>
 					{markAsSymbol}
