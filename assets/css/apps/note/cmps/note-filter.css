@@ -1,0 +1,53 @@
+.note-filter {
+    display: block;
+    margin: 10px;
+    border-bottom: 0.4px solid #DBDBDB;
+    box-shadow: 0 2px 2px -2px rgb(60 64 67 / 30%);
+}
+
+.note-filter form {
+    max-width: 300px;
+    margin: 16px auto 16px auto;
+    height: 46px;
+    border-radius: 8px;
+    background-color: #DBDBDB;
+    border: none;
+    overflow: hidden;
+    height: 40px;
+    overflow-y: auto;
+    position: relative;
+}
+
+
+.note-filter i {
+    background-color: transparent;
+    border: none;
+    height: 100%;
+    opacity: 50%;
+    padding-left: 5px;
+    cursor: pointer;
+    position: relative;
+    top: 20%;
+}
+
+
+.note-filter form input {
+    width: 250px;
+    height: auto;
+    border: none;
+    cursor: text;
+    background-color: transparent;
+    display: inline-block;
+    outline: none;
+    padding-left: 10px;
+    position: absolute;
+    top: 50%;              
+    transform: translate(0, -50%);
+}
+
+
+.note-filter form:hover, .note-filter form:focus  {
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%), 0 2px 6px 2px rgb(60 64 67 / 15%);
+    background-color: #fff;
+    border-color: #e0e0e0;
+}

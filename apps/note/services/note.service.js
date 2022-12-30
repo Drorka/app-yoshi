@@ -2,6 +2,7 @@ import { utilService } from '../../../services/util.service.js'
 import { storageService } from '../../../services/storage.service.js'
 import { asyncStorageService } from '../../../services/async-storage.service.js'
 
+
 const NOTE_KEY = 'noteDB'
 createNotes()
 
@@ -13,22 +14,24 @@ export const noteService = {
     save,
     getEmptyNote,
     getDefaultFilter,
-    getNextNoteId,
     createNote,
     createNotes,
 }
 
 
 function query(filterBy = getDefaultFilter()) {
-    return asyncStorageService.query(NOTE_KEY)
-        .then(notes => {
+	return asyncStorageService.query(NOTE_KEY)
+        .then((notes) => {
+
             if (filterBy.txt) {
                 const regex = new RegExp(filterBy.txt, 'i')
-                notes = notes.filter(note => regex.test(note.vendor))
+                notes = notes.filter(note => regex.test(note.info.txt || note.info.lable || note.info.title))
             }
-            if (filterBy.minSpeed) {
-                notes = notes.filter(note => note.maxSpeed >= filterBy.minSpeed)
+
+            if (filterBy.type) {
+                notes = notes.filter(note => note.type === filterBy.type)
             }
+
             return notes
         })
 }
@@ -37,16 +40,6 @@ function query(filterBy = getDefaultFilter()) {
 function get(noteId) {
     return asyncStorageService.get(NOTE_KEY, noteId)
     
-}
-
-
-function getNextNoteId(noteId) {
-    return asyncStorageService.query(NOTE_KEY)
-        .then(notes => {
-            var idx = notes.findIndex(note => note.id === noteId)
-            if (idx === notes.length - 1) idx = -1
-            return notes[idx + 1].id
-        })
 }
 
 
@@ -65,24 +58,13 @@ function save(note) {
 }
 
 
-// function getEmptyNote(id = '', createdAt = Date.now() ,type = '', isPinned = false, info = {title:'', txt: '' }) {
-//     return {
-//         id, 
-//         createdAt,
-//         type, 
-//         isPinned, 
-//         info,
-//         style, 
-//     }
-// }
-
 function getEmptyNote (id = '', createdAt = Date.now() ,type = '', isPinned = false, info = {title:'', txt: '' }, style = {backgroundColor: ''}) {
     return { id, createdAt, type, isPinned, info, style }
 }
 
 
 function getDefaultFilter() {
-    return { txt: '', minSpeed: '' }
+    return { txt: '', type: '' }
 }
 
 

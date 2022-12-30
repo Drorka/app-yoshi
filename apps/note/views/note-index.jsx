@@ -19,7 +19,7 @@ export function NoteIndex() {
 
 	useEffect(() => {
 		loadNotes()
-	}, [])
+	}, [filterBy])
 
 
 	function loadNotes() {
