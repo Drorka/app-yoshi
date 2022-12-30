@@ -1,6 +1,18 @@
+import { mailService } from '../services/mail.service.js'
+
 export function MailEdit({ setIsMailEditActive }) {
 	function onCloseMailEdit() {
 		setIsMailEditActive(false)
+	}
+
+	function onSendMail() {
+		event.preventDefault()
+		const mailTo = event.target.form[0].value
+		const mailSubject = event.target.form[1].value
+		const mailBody = event.target.form[2].value
+		mailService
+			.sendMail(mailSubject, mailBody, mailTo)
+			.then(() => onCloseMailEdit())
 	}
 
 	return (
@@ -14,21 +26,30 @@ export function MailEdit({ setIsMailEditActive }) {
 					close
 				</span>
 			</div>
-			<div className="mail-edit-content">
+			<form className="mail-edit-content">
 				<div className="mail-edit-receiver">
-					<span>To</span>
+					<textarea name="to" maxLength="55" placeholder="To"></textarea>
 				</div>
 				<div className="mail-edit-subject">
-					<span>Subject</span>
+					<textarea
+						name="subject"
+						maxLength="55"
+						placeholder="Subject"
+					></textarea>
 				</div>
-				<div className="mail-edit-body"></div>
-			</div>
-			<div className="mail-edit-tools flex space-between align-center">
-				<span className="mail-edit-send-btn">send</span>
-				<span className="material-symbols-outlined mail-edit-delete-btn">
-					delete
-				</span>
-			</div>
+				<div className="mail-edit-body">
+					<textarea name="body"></textarea>
+				</div>
+
+				<div className="mail-edit-tools flex space-between align-center">
+					<button className="mail-edit-send-btn" onClick={() => onSendMail()}>
+						send
+					</button>
+					{/* <span className="material-symbols-outlined mail-edit-delete-btn">
+						delete
+					</span> */}
+				</div>
+			</form>
 		</section>
 	)
 }

@@ -25,6 +25,7 @@ export const mailService = {
 	getDefaultCriteria,
 	getNextMailId,
 	getPrevMailId,
+	sendMail,
 }
 
 function query(criteria = getDefaultCriteria()) {
@@ -109,6 +110,7 @@ function getEmptyMail(
 	status = '',
 	isRead = null,
 	sentAt = null,
+	removedAt = null,
 	sender = '',
 	from = '',
 	to = ''
@@ -120,6 +122,7 @@ function getEmptyMail(
 		status,
 		isRead,
 		sentAt,
+		removedAt,
 		sender,
 		from,
 		to,
@@ -145,6 +148,7 @@ function _createMails() {
 				status: 'inbox',
 				isRead: true,
 				sentAt: 1551133930594,
+				removedAt: null,
 				sender: 'Momo',
 				from: 'momo@momo.com',
 				to: 'mario@mario.com',
@@ -226,8 +230,18 @@ function _createMails() {
 	}
 }
 
-// function _createBook(title, description, thumbnail, listPrice) {
-// 	const book = getEmptyBook(title, description, thumbnail, listPrice)
-// 	book.id = utilService.makeId()
-// 	return book
-// }
+function sendMail(subject, body, to) {
+	const mailToSend = {
+		id: '',
+		subject: subject,
+		body: body,
+		status: 'sent',
+		isRead: true,
+		sentAt: new Date(),
+		removedAt: null,
+		sender: 'Mario',
+		from: 'mario@mario.com',
+		to: to,
+	}
+	return save(mailToSend)
+}
