@@ -15,7 +15,8 @@ export const noteService = {
     getEmptyNote,
     getDefaultFilter,
     togglePinnedNote,
-    updateNote,
+    updateTextNote,
+    changeColorNote,
     createNote,
     createNotes,
 }
@@ -86,8 +87,19 @@ function togglePinnedNote(noteId) {
 }
 
 
-function updateNote(note) {
+function updateTextNote(note) {
     return asyncStorageService.put(NOTE_KEY, note)
+}
+
+
+function changeColorNote(noteId, color) {
+    const notes = storageService.loadFromStorage(NOTE_KEY)
+
+    const note = notes.find(note => note.id === noteId)
+    note.style.backgroundColor = color
+
+    save(note)
+    storageService.saveToStorage(NOTE_KEY, notes)
 }
 
 
@@ -106,7 +118,7 @@ function createNotes() {
                 txt: "The version of Yoshi seen in the Super Mario Bros!",
             } ,
             style: { 
-                backgroundColor: "#F8B95F" 
+                backgroundColor: "" 
             } 
         }, 
         { 
@@ -119,7 +131,7 @@ function createNotes() {
                 url: "https://mario.wiki.gallery/images/5/5f/Marioyoshismw.png", 
             }, 
             style: { 
-                backgroundColor: "#2ABAE3" 
+                backgroundColor: "#FDE0DF" 
             } 
         }, 
         { 
@@ -135,7 +147,7 @@ function createNotes() {
                 ] 
             },
             style: { 
-                backgroundColor: "#8D4825" 
+                backgroundColor: "#B0C6D0" 
             } 
         } 
     ]

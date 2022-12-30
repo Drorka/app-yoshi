@@ -2,11 +2,16 @@ const { useState, Fragment } = React
 
 import { noteService } from '../services/note.service.js'
 
+import { NoteColor } from './note-color.jsx'
 
-export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editText } ) {
+
+export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editText, onChangeColor } ) {
 
 	const pinnedClass = note.isPinned ? 'pinned' : 'not-pinned'
 	const [noteText, setNoteText] = useState(note.txt)
+
+
+	const [toggleColors, setToggleColors] = useState(false)
 
 
 	function onPinNote(noteId) {
@@ -20,10 +25,19 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 	}
 
 
-	return <Fragment>
-	<section className="note-preview">
+	function colorsClose() {
+        setToggleColors(false)
+    }
 
-		<div className="note-content">
+	function onColorsOpen(noteId) {
+		console.log(onColorsOpen, noteId);
+	}
+
+
+	return <Fragment>
+	<section className="note-preview" style={{ backgroundColor: note.style.backgroundColor }} >
+
+		<div className="note-content" >
 
 			<h1>{note.info.title}</h1>
 
@@ -52,7 +66,12 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 			<button className="material-symbols-outlined"
 			onClick={() => duplicateNote(note.id)} >file_copy</button>
 
-			<button className="material-symbols-outlined">palette</button>
+			{/* <button className="material-symbols-outlined"
+			onClick={() => onColorsOpen(note.id)}>palette</button> */}
+
+			<button className="material-symbols-outlined"
+			onClick={() => setToggleColors(!toggleColors)}>palette</button>
+				{toggleColors && <NoteColor note={note}  onChangeColor={onChangeColor} colorsClose={colorsClose}/>}
 
 			<button className="material-symbols-outlined" onClick={() => deleteNote(note.id)} >delete</button>
 			

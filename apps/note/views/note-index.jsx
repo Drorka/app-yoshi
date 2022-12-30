@@ -77,7 +77,15 @@ export function NoteIndex() {
 
 	function editText(note, noteText) {
         note.txt = noteText
-        noteService.updateNote(note)
+        noteService.updateTextNote(note)
+    }
+
+
+	function onChangeColor(note, color) {
+        noteService.changeColorNote(note.id, color)
+            .then((notes) => {
+                setNotes(notes)
+            })
     }
 
     
@@ -96,6 +104,7 @@ export function NoteIndex() {
 				duplicateNote={duplicateNote} 
 				pinNote={pinNote}
 				editText={editText}
+				onChangeColor={onChangeColor}
 				/>}
 			{isLoading && <div><Loader /></div>}
 		</div>
