@@ -1,20 +1,27 @@
+const { useState, useEffect } = React
 const { useNavigate } = ReactRouterDOM
 
 import { utilService } from '../../../services/util.service.js'
 import { mailService } from '../services/mail.service.js'
 
-export function MailPreview({ mail, onMoveMailTo, onMarkAs }) {
+export function MailPreview({
+	mail,
+	onMoveMailTo,
+	onMarkAs,
+	setIsMailDetailsActive,
+	setMailDetailsToOpen,
+}) {
 	const navigate = useNavigate()
-
+	// prepare preview data
 	const mailDate = utilService.getMailDate(mail.sentAt)
-
 	const read = mail.isRead ? 'read' : 'unread'
-
 	const markAsSymbol = mail.isRead ? 'mail' : 'drafts'
 
 	function onOpenMailDetails(mailId) {
 		console.log('link me to mail details', mailId)
-		navigate(`/mail/${mailId}`)
+		setMailDetailsToOpen(mailId)
+		setIsMailDetailsActive(true)
+		// navigate(`/mail/${mailId}`)
 	}
 
 	return (

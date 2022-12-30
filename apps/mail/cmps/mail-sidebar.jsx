@@ -2,7 +2,11 @@ const { useState, useEffect, useRef } = React
 
 import { mailService } from '../services/mail.service.js'
 
-export function MailSidebar({ onSetCriteria, unreadAmount }) {
+export function MailSidebar({
+	onSetCriteria,
+	unreadAmount,
+	setIsMailDetailsActive,
+}) {
 	const [criteriaToEdit, setCriteriaToEdit] = useState(
 		mailService.getDefaultCriteria()
 	)
@@ -14,10 +18,10 @@ export function MailSidebar({ onSetCriteria, unreadAmount }) {
 
 	function handleChange() {
 		let status = event.target.innerText.split(' ')[0].toLowerCase()
-
-		console.log(event.target)
 		// value = type === 'number' ? +value : value
 		setCriteriaToEdit((prevFilter) => ({ ...prevFilter, status: status }))
+		// close mail details
+		setIsMailDetailsActive(false)
 	}
 
 	// function onSubmitCriteria() {

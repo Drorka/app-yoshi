@@ -24,7 +24,6 @@ export function App() {
 					<Route path="/" element={<Home />} />
 
 					<Route element={<MailIndex />} path="/mail" />
-					<Route element={<MailDetails />} path="/mail/:mailId" />
 					{/* edit should be nested under list */}
 					<Route element={<MailEdit />} path="/mail/edit/:mailId" />
 

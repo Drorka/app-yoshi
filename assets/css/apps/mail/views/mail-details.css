@@ -29,6 +29,7 @@
 .mail-details-data {
     height: 40px;
     align-items: center;
+    margin-bottom: 10px;
 }
 
 /* sender name */
@@ -41,7 +42,7 @@
 }
 
 /* sender mail */
-.mail-details-sender-mail {
+.mail-details-sender-mail, .mail-details-to, .mail-details-to-mail {
     color: #5e5e5e;
     font-size: .75rem;
     line-height: 20px;
