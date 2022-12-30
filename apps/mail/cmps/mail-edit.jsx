@@ -25,7 +25,7 @@ export function MailEdit({ setIsMailEditActive }) {
 			</div>
 			<div className="mail-edit-tools flex space-between align-center">
 				<span className="mail-edit-send-btn">send</span>
-				<span class="material-symbols-outlined mail-edit-delete-btn">
+				<span className="material-symbols-outlined mail-edit-delete-btn">
 					delete
 				</span>
 			</div>
