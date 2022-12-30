@@ -37,7 +37,7 @@ export function MailPreview({
 				className={'mail-sender ' + read}
 				onClick={() => onOpenMailDetails(mail.id)}
 			>
-				{mail.from}
+				{mail.sender}
 			</div>
 			<div
 				className={'mail-subject ' + read}
