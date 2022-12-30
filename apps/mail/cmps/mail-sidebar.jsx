@@ -6,6 +6,7 @@ export function MailSidebar({
 	onSetCriteria,
 	unreadAmount,
 	setIsMailDetailsActive,
+	setIsMailEditActive,
 }) {
 	const [criteriaToEdit, setCriteriaToEdit] = useState(
 		mailService.getDefaultCriteria()
@@ -25,6 +26,10 @@ export function MailSidebar({
 		setIsMailDetailsActive(false)
 	}
 
+	function onComposeClick() {
+		setIsMailEditActive(true)
+	}
+
 	// function onSubmitCriteria() {
 	// 	console.log(event.target)
 	// 	// update father cmp that filters change on submit
@@ -33,7 +38,10 @@ export function MailSidebar({
 
 	return (
 		<section>
-			<div className="compose-mail flex justify-center align-center">
+			<div
+				className="compose-mail flex justify-center align-center"
+				onClick={() => onComposeClick()}
+			>
 				<span className="material-symbols-outlined">edit</span>
 				<span> Compose</span>
 			</div>

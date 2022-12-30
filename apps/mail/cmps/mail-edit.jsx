@@ -1,9 +1,16 @@
-export function MailEdit() {
+export function MailEdit({ setIsMailEditActive }) {
+	function onCloseMailEdit() {
+		setIsMailEditActive(false)
+	}
+
 	return (
 		<section className="mail-edit-container">
 			<div className="mail-edit-title flex space-between align-center">
 				<span className="mail-edit-title-txt">New Message</span>
-				<span className="material-symbols-outlined mail-edit-title-icon">
+				<span
+					className="material-symbols-outlined mail-edit-title-close"
+					onClick={() => onCloseMailEdit()}
+				>
 					close
 				</span>
 			</div>

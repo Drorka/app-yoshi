@@ -18,6 +18,11 @@
 .mail-edit-title {
     background-color: var(--clr1);
     height: 32px;
+    font-weight: 600;
+}
+
+.mail-edit-title-close:hover {
+    cursor: pointer;
 }
 
 /* content */

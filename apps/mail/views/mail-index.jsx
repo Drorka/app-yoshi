@@ -19,6 +19,8 @@ export function MailIndex() {
 	const [isMailDetailsActive, setIsMailDetailsActive] = useState(false)
 	const [mailDetailsToOpen, setMailDetailsToOpen] = useState(null)
 
+	const [isMailEditActive, setIsMailEditActive] = useState(false)
+
 	useEffect(() => {
 		loadMails()
 	}, [criteria])
@@ -73,6 +75,7 @@ export function MailIndex() {
 				onSetCriteria={onSetCriteria}
 				unreadAmount={unreadAmount}
 				setIsMailDetailsActive={setIsMailDetailsActive}
+				setIsMailEditActive={setIsMailEditActive}
 			/>
 			<div className="mail-main-content">
 				{!isMailDetailsActive && <MailFilter onSetCriteria={onSetCriteria} />}
@@ -99,7 +102,9 @@ export function MailIndex() {
 					/>
 				)}
 
-				<MailEdit />
+				{isMailEditActive && (
+					<MailEdit setIsMailEditActive={setIsMailEditActive} />
+				)}
 			</div>
 		</section>
 	)
