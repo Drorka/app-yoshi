@@ -1,8 +1,7 @@
 export function MailEdit() {
 	return (
 		<section className="mail-edit-container">
-			hello from compose
-			<div className="mail-edit-title">
+			<div className="mail-edit-title flex space-between align-center">
 				<span className="mail-edit-title-txt">New Message</span>
 				<span className="material-symbols-outlined mail-edit-title-icon">
 					close
@@ -17,9 +16,11 @@ export function MailEdit() {
 				</div>
 				<div className="mail-edit-body"></div>
 			</div>
-			<div className="mail-edit-tools">
-				<span>send</span>
-				<span>delete</span>
+			<div className="mail-edit-tools flex space-between align-center">
+				<span className="mail-edit-send-btn">send</span>
+				<span class="material-symbols-outlined mail-edit-delete-btn">
+					delete
+				</span>
 			</div>
 		</section>
 	)
