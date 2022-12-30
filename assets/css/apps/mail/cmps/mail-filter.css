@@ -1,0 +1,28 @@
+.mail-filter {
+    margin-bottom: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: 45px;
+    width: 300px;
+}
+.mail-filter-searchbox {
+    height: 45px;
+    background-color: var(--mail-preview-read-bg);
+    border-radius: 12px;
+}
+
+.mail-filter-searchbox form, input {
+    outline: none;
+    border: none;
+    background-color: unset;
+    line-height: 45px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.mail-filter-searchbox button {
+    border: none;
+    outline: none;
+    background-color: unset;
+    color: var(--mail-txt2);
+}

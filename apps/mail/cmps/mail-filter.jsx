@@ -31,39 +31,23 @@ export function MailFilter({ onSetCriteria }) {
 
 	return (
 		<section className="mail-filter full main-layout">
-			<form onSubmit={onSubmitCriteria}>
-				<label htmlFor="txt"></label>
-				<input
-					type="text"
-					id="txt"
-					name="txt"
-					placeholder="Search emails"
-					value={criteriaToEdit.txt}
-					onChange={handleChange}
-					ref={elInputRef}
-				/>
-				{/* <label htmlFor="body"></label>
-				<input
-					type="text"
-					id="body"
-					name="body"
-					placeholder="Search emails by content"
-					value={criteriaToEdit.body}
-					onChange={handleChange}
-					ref={elInputRef}
-				/>
-				<label htmlFor="sender"></label>
-				<input
-					type="text"
-					id="sender"
-					name="sender"
-					placeholder="Search emails by sender"
-					value={criteriaToEdit.sender}
-					onChange={handleChange}
-					ref={elInputRef}
-				/> */}
-				<button>search</button>
-			</form>
+			<div className="mail-filter-searchbox flex align-center">
+				<form className="flex align-center" onSubmit={onSubmitCriteria}>
+					<label htmlFor="txt"></label>
+					<button>
+						<span className="material-symbols-outlined">search</span>
+					</button>
+					<input
+						type="text"
+						id="txt"
+						name="txt"
+						placeholder="Search emails"
+						value={criteriaToEdit.txt}
+						onChange={handleChange}
+						ref={elInputRef}
+					/>
+				</form>
+			</div>
 		</section>
 	)
 }
