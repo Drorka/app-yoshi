@@ -29,15 +29,15 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 
 			<h2>{note.info.label}</h2>
 
-			<textarea
+			<div
+				contentEditable="true"
 				className="note-text"
 				onChange={changeHandle}
+				value={noteText}
 				onBlur={() => editText(note, noteText)}
-				>
-				{noteText}
-			</textarea>
-
-			<p>{note.info.txt}</p>
+				> 
+				{note.info.txt}
+			</div>
 
 			<img src={note.info.url} alt="" />
 

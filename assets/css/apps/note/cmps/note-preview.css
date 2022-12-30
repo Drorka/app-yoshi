@@ -30,10 +30,10 @@
 }
 
 
-.note-preview p {
+/* .note-preview p {
     font-size: 0.8rem;
     margin: 14px 0px 0px;
-}
+} */
 
 
 .note-preview img {
@@ -96,4 +96,10 @@
     border: none;
     cursor: text;
     font-size: 0.8rem;
+    margin: 14px 0px 0px;
+}
+
+
+.note-text:focus {
+    outline: 0;
 }
