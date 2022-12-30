@@ -5,6 +5,8 @@ import { noteService } from '../services/note.service.js'
 
 export function NotePreview( { note, deleteNote, duplicateNote, pinNote } ) {
 
+	const pinnedClass = note.isPinned ? 'pinned' : 'not-pinned'
+
 	function onPinNote(noteId) {
 		pinNote(noteId)
 	}
@@ -23,7 +25,7 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote } ) {
 		</div>
 
 
-		<button className="material-symbols-outlined pin-btn"
+		<button className={'material-symbols-outlined pin-btn ' + pinnedClass}
 		onClick={() => onPinNote(note.id)} >push_pin</button>
 
 		<div className="note-editor">

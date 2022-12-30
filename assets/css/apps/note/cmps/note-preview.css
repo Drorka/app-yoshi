@@ -81,11 +81,12 @@
     opacity: 50%;
 }
 
-.is-pinned  {
-    opacity: 60%;
+
+.pinned  {
+    opacity: 50% !important;
 }
 
 
-.is-not-pinned  {
+.not-pinned {
     opacity: 0%;
 }

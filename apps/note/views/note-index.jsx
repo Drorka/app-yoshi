@@ -71,7 +71,7 @@ export function NoteIndex() {
 
 	function pinNote(noteId) {
 		noteService.togglePinnedNote(noteId)
-
+		console.log(notes);
 		loadNotes()
 	}
 

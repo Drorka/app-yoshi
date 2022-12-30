@@ -79,10 +79,9 @@ function togglePinnedNote(noteId) {
     notes.splice(noteIdx, 1)
     notes.splice(0, 0, notePinned)
 
-    console.log('togglePinnedNote', notes);
     save(notePinned)
 
-    console.log(notes);
+    storageService.saveToStorage(NOTE_KEY, notes)
 }
 
 
