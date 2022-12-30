@@ -14,6 +14,7 @@ export const noteService = {
     save,
     getEmptyNote,
     getDefaultFilter,
+    togglePinnedNote,
     createNote,
     createNotes,
 }
@@ -65,6 +66,23 @@ function getEmptyNote (id = '', createdAt = Date.now() ,type = '', isPinned = fa
 
 function getDefaultFilter() {
     return { txt: '', type: '' }
+}
+
+
+function togglePinnedNote(noteId) {
+    const notes = storageService.loadFromStorage(NOTE_KEY)
+
+    const notePinned = notes.find(note => note.id === noteId)
+    notePinned.isPinned = notePinned.isPinned ? false : true
+
+    const noteIdx = notes.findIndex(note => note.id === noteId)
+    notes.splice(noteIdx, 1)
+    notes.splice(0, 0, notePinned)
+
+    console.log('togglePinnedNote', notes);
+    save(notePinned)
+
+    console.log(notes);
 }
 
 

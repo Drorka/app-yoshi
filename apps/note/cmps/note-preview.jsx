@@ -3,9 +3,11 @@ const { Fragment } = React
 import { noteService } from '../services/note.service.js'
 
 
-export function NotePreview( { note, deleteNote, duplicateNote } ) {
+export function NotePreview( { note, deleteNote, duplicateNote, pinNote } ) {
 
-	// const isPinned = note.isPinned ? 'is-pinned' : 'is-not-pinned'
+	function onPinNote(noteId) {
+		pinNote(noteId)
+	}
 
 
 	return <Fragment>
@@ -21,8 +23,8 @@ export function NotePreview( { note, deleteNote, duplicateNote } ) {
 		</div>
 
 
-		<button className="material-symbols-outlined pin-btn" >push_pin</button>
-		{/* <button className={'material-symbols-outlined pin-btn' + isPinned}>push_pin</button> */}
+		<button className="material-symbols-outlined pin-btn"
+		onClick={() => onPinNote(note.id)} >push_pin</button>
 
 		<div className="note-editor">
 

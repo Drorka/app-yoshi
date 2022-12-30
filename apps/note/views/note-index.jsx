@@ -68,20 +68,32 @@ export function NoteIndex() {
 		saveNote(duplicateNote)
 	}
 
+
+	function pinNote(noteId) {
+		noteService.togglePinnedNote(noteId)
+
+		loadNotes()
+	}
+
     
-    return <section className="note-index">
+	return <section className="note-index">
 
 		<NoteFilter onSetFilter={onSetFilter} />
 
-        <div className="note-index-add">
-            <NoteAdd saveNote={saveNote} />
-        </div>
+		<div className="note-index-add">
+			<NoteAdd saveNote={saveNote} />
+		</div>
 
-        <div className="note-index-list">
-			{!isLoading && <NoteList notes={notes} deleteNote={deleteNote} duplicateNote={duplicateNote} />}
+		<div className="note-index-list">
+			{!isLoading && <NoteList 
+				notes={notes} 
+				deleteNote={deleteNote} 
+				duplicateNote={duplicateNote} 
+				pinNote={pinNote}
+				/>}
 			{isLoading && <div><Loader /></div>}
-        </div>
+		</div>
 
-  </section>
+	</section>
 
 }
