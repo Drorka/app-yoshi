@@ -8,8 +8,7 @@ import { Home } from './views/home.jsx'
 import { About } from './views/about.jsx'
 
 import { MailIndex } from './apps/mail/views/mail-index.jsx'
-import { MailDetails } from './apps/mail/views/mail-details.jsx'
-import { MailEdit } from './apps/mail/views/mail-edit.jsx'
+import { MailEdit } from './apps/mail/cmps/mail-edit.jsx'
 
 import { NoteIndex } from './apps/note/views/note-index.jsx'
 import { NoteDetails } from './apps/note/views/note-details.jsx'

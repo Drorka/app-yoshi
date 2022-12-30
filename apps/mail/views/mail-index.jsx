@@ -7,6 +7,7 @@ import { MailSidebar } from '../cmps/mail-sidebar.jsx'
 import { MailFilter } from '../cmps/mail-filter.jsx'
 import { MailList } from '../cmps/mail-list.jsx'
 import { MailDetailsDynamic } from '../cmps/mail-details-dynamic.jsx'
+import { MailEdit } from '../cmps/mail-edit.jsx'
 // import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
 
 export function MailIndex() {
@@ -97,6 +98,8 @@ export function MailIndex() {
 						markAsRead={markAsRead}
 					/>
 				)}
+
+				<MailEdit />
 			</div>
 		</section>
 	)
