@@ -11,7 +11,9 @@ export function NoteColor( { note, onChangeColor, colorsClose } ) {
         '#F1E4DE',
     ]
 
-    return <section className="colors-container" onMouseLeave={colorsClose}>
+
+    return <section className="colors-container"
+        onMouseLeave={colorsClose}>
         {
             colors.map((color, idx) =>( 
                 <div className="color"
@@ -19,10 +21,9 @@ export function NoteColor( { note, onChangeColor, colorsClose } ) {
                     style={ {backgroundColor: color}}
                     onClick={() => {
                         onChangeColor(note, color)
-                        closePalette()
+                        colorsClose()
                     }}>  
                 </div>
         ))}
     </section>
-
 }

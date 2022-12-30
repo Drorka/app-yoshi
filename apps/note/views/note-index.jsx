@@ -71,7 +71,14 @@ export function NoteIndex() {
 
 	function pinNote(noteId) {
 		noteService.togglePinnedNote(noteId)
-		loadNotes()
+		// loadNotes()
+			.then(() => {
+				const updatedNotes = notes.filter(note => note.id !== noteId)
+				setNotes(updatedNotes)
+			})
+			.catch((err) => {
+				console.log('err:', err)
+			})
 	}
 
 
@@ -83,9 +90,7 @@ export function NoteIndex() {
 
 	function onChangeColor(note, color) {
         noteService.changeColorNote(note.id, color)
-            .then((notes) => {
-                setNotes(notes)
-            })
+		loadNotes()
     }
 
     

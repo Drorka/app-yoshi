@@ -10,7 +10,6 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 	const pinnedClass = note.isPinned ? 'pinned' : 'not-pinned'
 	const [noteText, setNoteText] = useState(note.txt)
 
-
 	const [toggleColors, setToggleColors] = useState(false)
 
 
@@ -29,10 +28,6 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
         setToggleColors(false)
     }
 
-	function onColorsOpen(noteId) {
-		console.log(onColorsOpen, noteId);
-	}
-
 
 	return <Fragment>
 	<section className="note-preview" style={{ backgroundColor: note.style.backgroundColor }} >
@@ -44,7 +39,8 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 			<h2>{note.info.label}</h2>
 
 			<div
-				contentEditable="true"
+				contentEditable={true}
+				suppressContentEditableWarning={true}
 				className="note-text"
 				onChange={changeHandle}
 				value={noteText}
@@ -66,12 +62,12 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 			<button className="material-symbols-outlined"
 			onClick={() => duplicateNote(note.id)} >file_copy</button>
 
-			{/* <button className="material-symbols-outlined"
-			onClick={() => onColorsOpen(note.id)}>palette</button> */}
-
 			<button className="material-symbols-outlined"
 			onClick={() => setToggleColors(!toggleColors)}>palette</button>
-				{toggleColors && <NoteColor note={note}  onChangeColor={onChangeColor} colorsClose={colorsClose}/>}
+				{toggleColors && 
+				<NoteColor note={note}
+					onChangeColor={onChangeColor} 
+					colorsClose={colorsClose}/>}
 
 			<button className="material-symbols-outlined" onClick={() => deleteNote(note.id)} >delete</button>
 			
