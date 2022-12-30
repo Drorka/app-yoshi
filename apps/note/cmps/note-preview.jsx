@@ -1,14 +1,22 @@
-const { Fragment } = React
+const { useState, Fragment } = React
 
 import { noteService } from '../services/note.service.js'
 
 
-export function NotePreview( { note, deleteNote, duplicateNote, pinNote } ) {
+export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editText } ) {
 
 	const pinnedClass = note.isPinned ? 'pinned' : 'not-pinned'
+	const [noteText, setNoteText] = useState(note.txt)
+
 
 	function onPinNote(noteId) {
 		pinNote(noteId)
+	}
+
+
+	function changeHandle({ target }) {
+	  const { value } = target
+	  setNoteText(value)
 	}
 
 
@@ -18,8 +26,19 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote } ) {
 		<div className="note-content">
 
 			<h1>{note.info.title}</h1>
+
 			<h2>{note.info.label}</h2>
+
+			<textarea
+				className="note-text"
+				onChange={changeHandle}
+				onBlur={() => editText(note, noteText)}
+				>
+				{noteText}
+			</textarea>
+
 			<p>{note.info.txt}</p>
+
 			<img src={note.info.url} alt="" />
 
 		</div>

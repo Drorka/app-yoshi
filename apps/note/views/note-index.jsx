@@ -75,6 +75,12 @@ export function NoteIndex() {
 		loadNotes()
 	}
 
+
+	function editText(note, noteText) {
+        note.txt = noteText
+        noteService.updateNote(note)
+    }
+
     
 	return <section className="note-index">
 
@@ -90,6 +96,7 @@ export function NoteIndex() {
 				deleteNote={deleteNote} 
 				duplicateNote={duplicateNote} 
 				pinNote={pinNote}
+				editText={editText}
 				/>}
 			{isLoading && <div><Loader /></div>}
 		</div>

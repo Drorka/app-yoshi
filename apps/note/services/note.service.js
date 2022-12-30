@@ -15,6 +15,7 @@ export const noteService = {
     getEmptyNote,
     getDefaultFilter,
     togglePinnedNote,
+    updateNote,
     createNote,
     createNotes,
 }
@@ -82,6 +83,11 @@ function togglePinnedNote(noteId) {
     save(notePinned)
 
     storageService.saveToStorage(NOTE_KEY, notes)
+}
+
+
+function updateNote(note) {
+    return asyncStorageService.put(NOTE_KEY, note)
 }
 
 

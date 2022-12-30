@@ -90,3 +90,10 @@
 .not-pinned {
     opacity: 0%;
 }
+
+
+.note-text {
+    border: none;
+    cursor: text;
+    font-size: 0.8rem;
+}

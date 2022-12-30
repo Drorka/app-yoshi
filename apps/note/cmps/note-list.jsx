@@ -3,7 +3,7 @@ import { noteService } from '../services/note.service.js'
 import { NotePreview } from './note-preview.jsx'
 
 
-export function NoteList( { notes, deleteNote, duplicateNote, pinNote } ) {
+export function NoteList( { notes, deleteNote, duplicateNote, pinNote, editText} ) {
 
     return <section className="note-list">
 
@@ -15,6 +15,7 @@ export function NoteList( { notes, deleteNote, duplicateNote, pinNote } ) {
                     deleteNote={deleteNote} 
                     duplicateNote={duplicateNote}
                     pinNote={pinNote}
+                    editText={editText}
                     />
 				</div>
 			))
