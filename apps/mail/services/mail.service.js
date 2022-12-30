@@ -31,9 +31,13 @@ export const mailService = {
 function query(criteria = getDefaultCriteria()) {
 	return asyncStorageService.query(MAIL_KEY).then((mails) => {
 		if (criteria.txt) {
-			const regex = new RegExp(criteria.txt, 'i')
-			mails = mails.filter((mail) => regex.test(mail.title))
+			mails = mails.filter(
+				(mail) =>
+					mail.subject.toLowerCase().includes(criteria.txt.toLowerCase()) ||
+					mail.body.toLowerCase().includes(criteria.txt.toLowerCase())
+			)
 		}
+
 		if (criteria.status) {
 			mails = mails.filter((mail) => mail.status === criteria.status)
 		}
