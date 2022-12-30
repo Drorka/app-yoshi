@@ -18,8 +18,9 @@ export function MailSidebar({
 
 	function handleChange() {
 		let status = event.target.innerText.split(' ')[0].toLowerCase()
+		console.log(status)
 		// value = type === 'number' ? +value : value
-		setCriteriaToEdit((prevFilter) => ({ ...prevFilter, status: status }))
+		setCriteriaToEdit((prevCriteria) => ({ ...prevCriteria, status: status }))
 		// close mail details
 		setIsMailDetailsActive(false)
 	}

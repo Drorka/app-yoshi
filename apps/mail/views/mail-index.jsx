@@ -64,9 +64,7 @@ export function MailIndex() {
 		mailService.changeIsRead(mailId).then()
 	}
 
-	const unreadAmount = mails.filter(
-		(mail) => mail.status === 'inbox' && mail.isRead === false
-	).length
+	const unreadAmount = mailService.getInboxUnreadAmount()
 
 	return (
 		<section className="mail-index full main-layout flex">

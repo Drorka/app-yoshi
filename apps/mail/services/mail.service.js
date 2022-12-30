@@ -20,6 +20,7 @@ export const mailService = {
 	changeFolder,
 	toggleMarkAs,
 	changeIsRead,
+	getInboxUnreadAmount,
 	getEmptyMail,
 	getDefaultCriteria,
 	getNextMailId,
@@ -92,6 +93,14 @@ function changeIsRead(mailId) {
 	const mailToMark = mails.find((mail) => mail.id === mailId)
 	mailToMark.isRead = true
 	return save(mailToMark)
+}
+
+function getInboxUnreadAmount() {
+	const mails = storageService.loadFromStorage(MAIL_KEY)
+	const inboxUnreadAmount = mails.filter(
+		(mail) => mail.status === 'inbox' && mail.isRead === false
+	).length
+	return inboxUnreadAmount
 }
 
 function getEmptyMail(
@@ -205,7 +214,7 @@ function _createMails() {
 				subject: 'Its a-me, Mario!',
 				body: 'babadaboopi, boobidibapi! ',
 				status: 'drafts',
-				isRead: false,
+				isRead: true,
 				sentAt: 1551133930594,
 				removedAt: null,
 				sender: 'mario',
