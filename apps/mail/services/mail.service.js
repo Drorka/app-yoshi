@@ -134,6 +134,22 @@ function getEmptyMail(
 	}
 }
 
+function sendMail(subject, body, to) {
+	const mailToSend = {
+		id: '',
+		subject: subject,
+		body: body,
+		status: 'sent',
+		isRead: true,
+		sentAt: new Date(),
+		removedAt: null,
+		sender: 'Mario',
+		from: 'mario@mario.com',
+		to: to,
+	}
+	return save(mailToSend)
+}
+
 function getDefaultCriteria() {
 	const criteria = {
 		status: 'inbox',
@@ -244,23 +260,91 @@ function _createMails() {
 				from: 'mario@mario.com',
 				to: 'peach@peach.com',
 			},
+			{
+				id: utilService.makeId(),
+				subject: 'Yoshi is in da house',
+				body: 'Yeah Youshi is me',
+				status: 'inbox',
+				isRead: true,
+				sentAt: 1654537646000,
+				removedAt: null,
+				sender: 'Yoshi',
+				from: 'yoshi@yoshi.com',
+				to: 'mario@mario.com',
+			},
+			{
+				id: utilService.makeId(),
+				subject: 'Another mail here',
+				body: 'i know its not supposed to be lorem',
+				status: 'sent',
+				isRead: false,
+				sentAt: 1665078446000,
+				removedAt: null,
+				sender: 'Mario',
+				from: 'mario@mario.com',
+				to: 'peach@peach.com',
+			},
+			{
+				id: utilService.makeId(),
+				subject: 'Mail from nov 7',
+				body: 'lets see if it works',
+				status: 'inbox',
+				isRead: false,
+				sentAt: 1667843246000,
+				removedAt: null,
+				sender: 'Luigi',
+				from: 'luigi@luigi.com',
+				to: 'mario@mario.com',
+			},
+			{
+				id: utilService.makeId(),
+				subject: 'What about this one',
+				body: 'i cant do this anymore ',
+				status: 'inbox',
+				isRead: false,
+				sentAt: 1662572846000,
+				removedAt: null,
+				sender: 'Princess Peach',
+				from: 'peach@peach.com',
+				to: 'mario@mario.com',
+			},
+			{
+				id: utilService.makeId(),
+				subject: 'its summer time here',
+				body: 'oh i wish',
+				status: 'sent',
+				isRead: true,
+				sentAt: 1657216046000,
+				removedAt: null,
+				sender: 'Mario',
+				from: 'mario@mario.com',
+				to: 'bowser@bowser.com',
+			},
+			{
+				id: utilService.makeId(),
+				subject: 'one more for summertime',
+				body: 'but later ',
+				status: 'trash',
+				isRead: false,
+				sentAt: 1657907246000,
+				removedAt: null,
+				sender: 'Bowser',
+				from: 'bowser@bowser.com',
+				to: 'mario@mario.com',
+			},
+			{
+				id: utilService.makeId(),
+				subject: 'for gods sake',
+				body: 'babadaboopi, boobidibapi! ',
+				status: 'drafts',
+				isRead: true,
+				sentAt: 1657907246000,
+				removedAt: null,
+				sender: 'Mario',
+				from: 'mario@mario.com',
+				to: 'peach@peach.com',
+			},
 		]
 		storageService.saveToStorage(MAIL_KEY, mails)
 	}
-}
-
-function sendMail(subject, body, to) {
-	const mailToSend = {
-		id: '',
-		subject: subject,
-		body: body,
-		status: 'sent',
-		isRead: true,
-		sentAt: new Date(),
-		removedAt: null,
-		sender: 'Mario',
-		from: 'mario@mario.com',
-		to: to,
-	}
-	return save(mailToSend)
 }

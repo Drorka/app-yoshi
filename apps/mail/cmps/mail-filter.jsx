@@ -29,7 +29,7 @@ export function MailFilter({ onSetCriteria, loadMails }) {
 		onSetCriteria(criteriaToEdit)
 	}
 
-	// ! sorting doesn't work
+	// ! sorting doesn't work well
 	function onSortMailsBy(val) {
 		console.log('sort by me', val)
 		console.log('1669916846000')
