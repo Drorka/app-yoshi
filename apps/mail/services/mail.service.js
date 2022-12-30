@@ -23,6 +23,7 @@ export const mailService = {
 	getInboxUnreadAmount,
 	getEmptyMail,
 	getDefaultCriteria,
+	sortMailsBy,
 	getNextMailId,
 	getPrevMailId,
 	sendMail,
@@ -141,6 +142,20 @@ function getDefaultCriteria() {
 	return criteria
 }
 
+function sortMailsBy(val) {
+	console.log('service', val)
+	const mails = storageService.loadFromStorage(MAIL_KEY)
+	console.log('from storage', mails)
+	if (val === 'sentAt') {
+		mails.sort((a, b) => b.sentAt - a.sentAt)
+	} else if (val === 'subject') {
+		mails.sort((a, b) => a.subject - b.subject)
+	}
+	console.log('to storage', mails)
+	storageService.saveToStorage(MAIL_KEY, mails)
+	return Promise.resolve()
+}
+
 function _createMails() {
 	let mails = storageService.loadFromStorage(MAIL_KEY)
 	if (!mails || !mails.length) {
@@ -151,7 +166,7 @@ function _createMails() {
 				body: 'Would love to catch up sometimes',
 				status: 'inbox',
 				isRead: true,
-				sentAt: 1551133930594,
+				sentAt: 1641491246000,
 				removedAt: null,
 				sender: 'Momo',
 				from: 'momo@momo.com',
@@ -163,7 +178,7 @@ function _createMails() {
 				body: 'babadaboopi, boobidibapi! ',
 				status: 'sent',
 				isRead: true,
-				sentAt: 1551133930594,
+				sentAt: 1660326446000,
 				removedAt: null,
 				sender: 'Mario',
 				from: 'mario@mario.com',
@@ -175,7 +190,7 @@ function _createMails() {
 				body: 'Take it easy, Luigi, things could be worse!',
 				status: 'inbox',
 				isRead: false,
-				sentAt: 1551133930594,
+				sentAt: 1669916846000,
 				removedAt: null,
 				sender: 'Luigi',
 				from: 'luigi@luigi.com',
@@ -187,7 +202,7 @@ function _createMails() {
 				body: 'our quest is over',
 				status: 'inbox',
 				isRead: false,
-				sentAt: 1551133930594,
+				sentAt: 1645206446000,
 				removedAt: null,
 				sender: 'Princess Peach',
 				from: 'peach@peach.com',
@@ -199,7 +214,7 @@ function _createMails() {
 				body: 'All this power, and good looks too! I know what youre thinking...',
 				status: 'sent',
 				isRead: true,
-				sentAt: 1551133930594,
+				sentAt: 1667756846000,
 				removedAt: null,
 				sender: 'Mario',
 				from: 'mario@mario.com',
@@ -211,7 +226,7 @@ function _createMails() {
 				body: 'Mario! Prepare yourself for the great beyond! ',
 				status: 'trash',
 				isRead: false,
-				sentAt: 1551133930594,
+				sentAt: 1667756846000,
 				removedAt: null,
 				sender: 'Bowser',
 				from: 'bowser@bowser.com',
@@ -223,7 +238,7 @@ function _createMails() {
 				body: 'babadaboopi, boobidibapi! ',
 				status: 'drafts',
 				isRead: true,
-				sentAt: 1551133930594,
+				sentAt: 1641491246000,
 				removedAt: null,
 				sender: 'Mario',
 				from: 'mario@mario.com',

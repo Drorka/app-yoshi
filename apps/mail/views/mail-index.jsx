@@ -78,7 +78,9 @@ export function MailIndex() {
 				setIsMailEditActive={setIsMailEditActive}
 			/>
 			<div className="mail-main-content">
-				{!isMailDetailsActive && <MailFilter onSetCriteria={onSetCriteria} />}
+				{!isMailDetailsActive && (
+					<MailFilter onSetCriteria={onSetCriteria} loadMails={loadMails} />
+				)}
 
 				{/* <Link to="/mail/edit">Add Book</Link> */}
 

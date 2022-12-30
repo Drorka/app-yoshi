@@ -2,7 +2,7 @@ const { useState, useEffect, useRef } = React
 
 import { mailService } from '../services/mail.service.js'
 
-export function MailFilter({ onSetCriteria }) {
+export function MailFilter({ onSetCriteria, loadMails }) {
 	const [criteriaToEdit, setCriteriaToEdit] = useState(
 		mailService.getDefaultCriteria()
 	)
@@ -29,8 +29,15 @@ export function MailFilter({ onSetCriteria }) {
 		onSetCriteria(criteriaToEdit)
 	}
 
+	// ! sorting doesn't work
+	function onSortMailsBy(val) {
+		console.log('sort by me', val)
+		console.log('1669916846000')
+		mailService.sortMailsBy(val).then(() => loadMails())
+	}
+
 	return (
-		<section className="mail-filter full main-layout">
+		<section className="mail-filter full main-layout flex align-center">
 			<div className="mail-filter-searchbox flex align-center">
 				<form className="flex align-center" onSubmit={onSubmitCriteria}>
 					<label htmlFor="txt"></label>
@@ -47,6 +54,14 @@ export function MailFilter({ onSetCriteria }) {
 						ref={elInputRef}
 					/>
 				</form>
+			</div>
+			<div className="mail-filter-sort flex align-center">
+				<span className="material-symbols-outlined">mark_as_unread</span>
+				<span>Sort by </span>
+				<select onChange={(ev) => onSortMailsBy(ev.target.value)} name="" id="">
+					<option value="sentAt">Date</option>
+					<option value="subject">Subject</option>
+				</select>
 			</div>
 		</section>
 	)

@@ -3,10 +3,16 @@
     margin-right: 10px;
     margin-left: 10px;
     height: 45px;
-    width: 300px;
+    /* width: 500px; */
+    font-size: 1rem;
+    color: var(--mail-txt2);
+
 }
+
+/* searchbox */
 .mail-filter-searchbox {
     height: 45px;
+    width: 300px;
     background-color: var(--mail-preview-read-bg);
     border-radius: 12px;
 }
@@ -25,4 +31,9 @@
     outline: none;
     background-color: unset;
     color: var(--mail-txt2);
+}
+
+/* filter by isRead */
+.mail-filter-by-isread {
+    margin-left: 15px;
 }
