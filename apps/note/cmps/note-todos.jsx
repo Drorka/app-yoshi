@@ -2,32 +2,32 @@
 export function NoteTodos( {info}) {
 
 
-	// function handleChange({target}) { 
+	function handleChange({target}) { 
 
-    // }
+    }
 
 
-    // function onSubmitTxt(ev) {
+    function onSubmitTxt(ev) {
 
-    // }
+    }
 
-    // console.log('note todos');
-    // return <div className="note-content-todos" >
+    console.log('note todos');
+    return <div className="note-content-todos" >
 
-    //         <h1
-	// 			contentEditable={true}
-	// 			suppressContentEditableWarning={true}
-	// 			className="note-content-todos-title"
-	// 			onChange={handleChange}
-	// 			value={info.title}
-	// 			onBlur={() => onSubmitTxt(noteToEdit.id)}
-	// 			>{info.title}</h1>
+             <h1
+	 			contentEditable={true}
+	 			suppressContentEditableWarning={true}
+	 			className="note-content-todos-title"
+	 			onChange={handleChange}
+	 			value={info.title}
+	 			onBlur={() => onSubmitTxt}
+	 			>{info.title}</h1>
 
-	// 		<ul className="note-content-todos-list">
-	// 			<li><input type="checkbox" />{info.todos.txt}</li>
-	// 			<li><input type="checkbox" />{info.todos.txt}</li>
-	// 			<li><input type="checkbox" />{info.todos.txt}</li>
-	// 		</ul>
+			<ul className="note-content-todos-list">
+				{
+				info.todos.map(todo => <li key={info.todos.todoId}>{info.todos.txt}</li>)
+				}
+			</ul>
 
-	// 	</div>
+	 	</div>
 }

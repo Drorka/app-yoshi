@@ -41,7 +41,7 @@
 .note-preview img, .note-preview iframe  {
     max-width: 245px;
     height: fit-content;
-    margin: 0px 0px 16px 0px;
+    margin: 8px 0px 16px 0px;
     border: none;
     border-radius: 8px;
 }
