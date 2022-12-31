@@ -1,0 +1,50 @@
+.home {
+    height: 90vh;
+    width: 100vw;
+}
+
+
+.home h1 {
+    font-size: 2rem;
+    margin: 20px;
+}
+
+
+.home h2 {
+    font-size: 1.6rem;
+    margin: 20px;
+    font-weight: 600;
+}
+
+
+.home h4 {
+    font-size: 1rem;
+    font-weight: 300;
+    margin: 20px;
+}
+
+
+.home img {
+    width: 400px;
+    height: auto;
+    object-fit: cover;
+    position: relative;
+    left: 10%;
+    animation: float-up 3s ease-in-out infinite;
+}
+
+
+@keyframes float-up {
+    0% {
+      transform: translatey(0px);
+    }
+    50% {
+      transform: translatey(-20px);
+    }
+    100% {
+      transform: translatey(0px);
+    }
+}
+
+  
+  

@@ -19,9 +19,9 @@ export function AppHeader() {
 					<img src="../assets/img/icons/keep_logo.png" alt="note" />
 				</NavLink>
 
-				<NavLink to="/about">
+				{/* <NavLink to="/about">
 					<img src="../assets/img/icons/contacs_logo.png" alt="about" />
-				</NavLink>
+				</NavLink> */}
 			</nav>
 		</header>
 	)

@@ -146,9 +146,22 @@ function createNotes() {
             style: { 
                 backgroundColor: "" 
             } 
+        },
+        { 
+            id: "n104",
+            createdAt: 11134522,
+            type: "note-pic", 
+            isPinned: false, 
+            info: { 
+                title: "Mario and Yoshi Flying",
+                url: "https://media.tenor.com/kKyINiaBaPkAAAAM/yoshimarioworld.gif", 
+            }, 
+            style: { 
+                backgroundColor: "" 
+            } 
         }, 
         { 
-            id: "n104", 
+            id: "n105", 
             createdAt: 11334562,
             type: "note-todos", 
             isPinned: false, 
@@ -165,7 +178,20 @@ function createNotes() {
             } 
         },
         { 
-            id: "n105",
+            id: "n106", 
+            createdAt: 1112222,
+            type: "note-txt", 
+            isPinned: true, 
+            info: { 
+                title: "Mamma mia!",
+                txt: "Here we go!",
+            } ,
+            style: { 
+                backgroundColor: "" 
+            } 
+        }, 
+        { 
+            id: "n107",
             createdAt: 11139822,
             type: "note-pic", 
             isPinned: false, 
@@ -174,7 +200,7 @@ function createNotes() {
                 url: "https://media.tenor.com/R5B3E0shIUgAAAAM/yoshi-dan%C3%A7ando-yoshi-e-ovo.gif", 
             }, 
             style: { 
-                backgroundColor: "" 
+                backgroundColor: "#CDC5D6"
             } 
         },
     ]
