@@ -13,6 +13,7 @@
     break-inside: avoid;
     line-break: anywhere;
     position: relative;
+    text-align: center;
 }
 
 
@@ -30,16 +31,19 @@
 }
 
 
-/* .note-preview p {
+.note-preview p {
     font-size: 0.8rem;
     margin: 14px 0px 0px;
-} */
+    text-align: left;
+}
 
 
-.note-preview img {
-    max-width: 260px;
+.note-preview img, .note-preview iframe  {
+    max-width: 245px;
     height: fit-content;
     margin: 0px 0px 16px 0px;
+    border: none;
+    border-radius: 8px;
 }
 
 

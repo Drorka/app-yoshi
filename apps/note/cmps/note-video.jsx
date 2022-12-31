@@ -23,7 +23,7 @@ export function NoteVideo( {info} ) {
 				onBlur={() => onSubmitTxt(noteToEdit.id)}
 				> {info.title}</h1>
 
-			<iframe width="420" height="315"
+			<iframe width="100%"
 				src={`https://www.youtube.com/embed/${info.url}`}>
 			</iframe>
 
