@@ -1,25 +1,30 @@
 
-export function NotePic() {
+export function NotePic( {info} ) {
+
+
+	function handleChange({target}) { 
+
+    }
+
+
+    function onSubmitTxt(ev) {
+
+    }
 
     console.log('note pic');
-    return <div className="note-content" >
+    return <div className="note-content-pic" >
 
 
-            <h1>note pic</h1>
-			{/* <h1>{note.info.title}</h1>
-
-			<h2>{note.info.txt}</h2> */}
-
-			{/* <div
+            <h1
 				contentEditable={true}
 				suppressContentEditableWarning={true}
-				className="note-text"
-				onChange={changeHandle}
-				value={noteText}
-				onBlur={() => editText(note, noteText)}
-				> 
-				{note.info.txt}
-			</div> */}
+				className="note-content-pic-title"
+				onChange={handleChange}
+				value={info.title}
+				onBlur={() => onSubmitTxt(noteToEdit.id)}
+				> {info.title}</h1>
+
+			<img src={info.url} alt="" />
 
 		</div>
 }

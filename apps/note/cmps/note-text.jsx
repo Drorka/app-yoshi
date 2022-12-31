@@ -8,20 +8,20 @@ export function NoteTxt( {info, editText} ) {
 	const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyNote())
 
 
-    useEffect(() =>{
-		console.log('useEffect');
-        loadBook()
-    } , [])
+    // useEffect(() =>{
+	// 	console.log('useEffect');
+    //     loadBook()
+    // } , [])
 
 
-    function loadBook() {
-		console.log('loadBook');
-        noteService.get(noteId)
-        .then((note) => setNoteToEdit(note))
-        .catch((err) =>{
-            console.log('err' ,err)
-        })
-    }
+    // function loadBook() {
+	// 	console.log('loadBook');
+    //     noteService.get(noteId)
+    //     .then((note) => setNoteToEdit(note))
+    //     .catch((err) =>{
+    //         console.log('err' ,err)
+    //     })
+    // }
 
 
     function handleChange({target}) { 

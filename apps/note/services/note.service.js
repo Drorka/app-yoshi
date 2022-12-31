@@ -124,7 +124,7 @@ function createNotes() {
         { 
             id: "n102",
             createdAt: 11134522,
-            type: "note-img", 
+            type: "note-pic", 
             isPinned: false, 
             info: { 
                 title: "Mario and Yoshi Flying",
@@ -135,15 +135,29 @@ function createNotes() {
             } 
         }, 
         { 
-            id: "n103", 
+            id: "n103",
+            createdAt: 11133722,
+            type: "note-video", 
+            isPinned: false, 
+            info: { 
+                title: "Here is Yoshi",
+                url: "BL_YQjqfkUk", 
+            }, 
+            style: { 
+                backgroundColor: "" 
+            } 
+        }, 
+        { 
+            id: "n104", 
             createdAt: 11334562,
             type: "note-todos", 
             isPinned: false, 
             info: { 
                 label: "Get my stuff together", 
                 todos: [ 
-                    { txt: "Get the stone", doneAt: null }, 
-                    { txt: "Help Mario", doneAt: 187111111 },
+                    { txt: "Get the stone", isDone: false }, 
+                    { txt: "Help Mario", isDone: true },
+                    { txt: "Save the princess", isDone: false },
                 ] 
             },
             style: { 
