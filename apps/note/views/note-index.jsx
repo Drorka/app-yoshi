@@ -82,10 +82,10 @@ export function NoteIndex() {
 	}
 
 
-	function editText(note, noteText) {
-        note.txt = noteText
-        noteService.updateTextNote(note)
-    }
+	// function editText(note, noteText) {
+    //     note.txt = noteText
+    //     noteService.updateTextNote(note)
+    // }
 
 
 	// function editText(noteToEdit) {

@@ -1,25 +1,68 @@
+import { noteService } from './../services/note.service.js'
 
-export function NoteTxt() {
+const { useState } = React
 
-    console.log('note txt');
-    return <div className="note-content" >
+export function NoteTxt( {info, editText} ) {
+    console.log('txt note', info);
+
+	const [noteToEdit, setNoteToEdit] = useState()
 
 
-            <h1>note txt</h1>
-			{/* <h1>{note.info.title}</h1>
+	function handleChange({ target }) {
+        let { value, name: field, type } = target
+        value = (type === 'number') ? +value : value
 
-			<h2>{note.info.txt}</h2> */}
+        setFilterByToEdit((prevFilter) => {
+            return {...prevFilter , [field]: value}
+        })
+    }
 
-			{/* <div
+	// const [filterBy, setFilterByToEdit] = useState(noteService.getDefaultFilter())
+
+	// useEffect(() => {
+    //     onSetFilter(filterBy)
+    // }, [filterBy])
+
+
+	// function handleChange({ target }) {
+    //     let { value, name: field, type } = target
+    //     value = (type === 'number') ? +value : value
+
+    //     setFilterByToEdit((prevFilter) => {
+    //         return {...prevFilter , [field]: value}
+    //     })
+    // }
+
+
+	// function onSubmitFilter(ev) {
+    //     ev.preventDefault()
+    //     onSetFilter(filterBy)
+    // }
+
+
+    return <div className="note-content-txt" >
+
+
+            <h1
 				contentEditable={true}
 				suppressContentEditableWarning={true}
-				className="note-text"
-				onChange={changeHandle}
-				value={noteText}
-				onBlur={() => editText(note, noteText)}
+				className="note-content-txt-title"
+				onChange={handleChange}
+				value={info.title}
+				onBlur={() => editText(note, noteTitle)}
+				> {info.title}</h1>
+
+
+			<p
+				contentEditable={true}
+				suppressContentEditableWarning={true}
+				className="note-content-txt-text"
+				onChange={handleChange}
+				value={info.txt}
+				onBlur={() => editText(note, noteTxt)}
 				> 
-				{note.info.txt}
-			</div> */}
+				{info.txt}
+			</p>
 
 		</div>
 }
