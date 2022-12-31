@@ -60,7 +60,7 @@ function save(note) {
 }
 
 
-function getEmptyNote (id = '', createdAt = Date.now() ,type = '', isPinned = false, info = {title:'', txt: '' }, style = {backgroundColor: ''}) {
+function getEmptyNote (id = '', createdAt = Date.now() ,type = 'note-txt', isPinned = false, info = {title:'', txt: '' }, style = {backgroundColor: ''}) {
     return { id, createdAt, type, isPinned, info, style }
 }
 

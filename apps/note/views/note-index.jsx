@@ -13,7 +13,6 @@ import { NoteSidebar } from '../cmps/note-sidebar.jsx'
 
 export function NoteIndex() {
 
-	const [isLoading, setIsLoading] = useState(false)
 	const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
 	const [notes, setNotes] = useState([])
 
@@ -24,11 +23,9 @@ export function NoteIndex() {
 
 
 	function loadNotes() {
-		setIsLoading(true)
 
 		noteService.query(filterBy).then((notes) => {
 			setNotes(notes)
-			setIsLoading(false)
 		})
 	}
 
@@ -39,14 +36,8 @@ export function NoteIndex() {
 
 
 	function saveNote(noteToSave) {
-		console.log(noteToSave);
 		noteService.save(noteToSave)
-			.then(noteToSave => {
-				setNotes(prevNotes => [...prevNotes, noteToSave])
-			})
-            .catch((err) => {
-                console.log('err:', err)
-            })
+		loadNotes()
     }
 
 
@@ -94,14 +85,13 @@ export function NoteIndex() {
 		</div>
 
 		<div className="note-index-list">
-			{!isLoading && <NoteList 
+			<NoteList 
 				notes={notes} 
 				deleteNote={deleteNote} 
 				duplicateNote={duplicateNote} 
 				pinNote={pinNote}
 				onChangeColor={onChangeColor}
-				/>}
-			{isLoading && <div><Loader /></div>}
+				/>
 		</div>
 
 	</section>
