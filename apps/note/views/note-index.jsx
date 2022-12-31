@@ -39,6 +39,7 @@ export function NoteIndex() {
 
 
 	function saveNote(noteToSave) {
+		console.log(noteToSave);
 		noteService.save(noteToSave)
 			.then(noteToSave => {
 				setNotes(prevNotes => [...prevNotes, noteToSave])
@@ -73,32 +74,7 @@ export function NoteIndex() {
 	function pinNote(noteId) {
 		noteService.togglePinnedNote(noteId)
 		loadNotes()
-			// .then(() => {
-			// 	const updatedNotes = notes.filter(note => note.id !== noteId)
-			// 	setNotes(updatedNotes)
-			// })
-			// .catch((err) => {
-			// 	console.log('err:', err)
-			// })
 	}
-
-
-	// function editText(note, noteText) {
-    //     note.txt = noteText
-    //     noteService.updateTextNote(note)
-    // }
-
-
-	// function editText(noteToEdit) {
-    //     noteService.save(noteToEdit)
-    //         .then(() => {
-    //             const notesToEdit = notes.map(note => note.id === noteToEdit.id ? noteToEdit : note)
-    //             setNotes(notesToEdit)
-    //         })
-    //         .catch((err) => {
-    //             console.log('err:', err)
-    //         })
-    // }
 
 
 	function onChangeColor(note, color) {
@@ -123,7 +99,6 @@ export function NoteIndex() {
 				deleteNote={deleteNote} 
 				duplicateNote={duplicateNote} 
 				pinNote={pinNote}
-				// editText={editText}
 				onChangeColor={onChangeColor}
 				/>}
 			{isLoading && <div><Loader /></div>}

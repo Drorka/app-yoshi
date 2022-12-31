@@ -11,7 +11,6 @@ export function NoteVideo( {info} ) {
 
     }
 
-    console.log('note video');
     return <div className="note-content-video" >
 
             <h1

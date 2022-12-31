@@ -11,7 +11,6 @@ export function NoteTodos( {info}) {
 
     }
 
-    console.log('note todos');
     return <div className="note-content-todos" >
 
              <h1
