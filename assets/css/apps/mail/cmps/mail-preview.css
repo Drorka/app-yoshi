@@ -1,6 +1,6 @@
 /* *dt first */
 /* desktop */
-@media (min-width: 780px) {
+@media (min-width: 480px) {
     /* preview */
     .mail-preview {
         padding-bottom: 10px;
@@ -29,9 +29,25 @@
         padding-right: 10px;
     }
 
+    .mobile-set-upper {
+        display: flex;
+    }
+
+    .mobile-set-middle {
+        display: flex;
+    }
+
+    .mobile-set-lower {
+        display: flex;
+        margin:auto;
+        margin-right: 0px;
+        justify-content: flex-end;
+    }
+
     /* markers */
     .mail-markers * {
         padding-left: 5px;
+        padding-bottom: 8px;
         color: var(--mail-preview-markers);
     }
 
@@ -116,8 +132,6 @@
     }
 }
 
-/* tablet */
-@media (min-width: 480px) {}
 
 /* mobile */
 @media (max-width: 480px) {
