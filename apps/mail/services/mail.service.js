@@ -165,7 +165,7 @@ function sortMailsBy(val) {
 	if (val === 'sentAt') {
 		mails.sort((a, b) => b.sentAt - a.sentAt)
 	} else if (val === 'subject') {
-		mails.sort((a, b) => a.subject - b.subject)
+		mails.sort((a, b) => a.subject.localeCompare(b.subject))
 	}
 	console.log('to storage', mails)
 	storageService.saveToStorage(MAIL_KEY, mails)
@@ -230,7 +230,7 @@ function _createMails() {
 				body: 'All this power, and good looks too! I know what youre thinking...',
 				status: 'sent',
 				isRead: true,
-				sentAt: 1667756846000,
+				sentAt: 1662572846000,
 				removedAt: null,
 				sender: 'Mario',
 				from: 'mario@mario.com',

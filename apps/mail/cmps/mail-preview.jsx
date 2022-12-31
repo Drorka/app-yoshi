@@ -60,6 +60,7 @@ export function MailPreview({
 				<span
 					className="material-symbols-outlined mark-as-icon"
 					onClick={() => onMarkAs(mail.id)}
+					title={`Mak as ${read}`}
 				>
 					{markAsSymbol}
 				</span>
