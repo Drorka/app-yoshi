@@ -12,6 +12,14 @@ export function MailSidebar({
 		mailService.getDefaultCriteria()
 	)
 
+	let inboxActiveStyle =
+		criteriaToEdit.status === 'inbox' ? 'active-folder' : ''
+	let sentActiveStyle = criteriaToEdit.status === 'sent' ? 'active-folder' : ''
+	let draftsActiveStyle =
+		criteriaToEdit.status === 'drafts' ? 'active-folder' : ''
+	let trashActiveStyle =
+		criteriaToEdit.status === 'trash' ? 'active-folder' : ''
+
 	useEffect(() => {
 		// update father cmp that filters change very type
 		onSetCriteria(criteriaToEdit)
@@ -47,7 +55,7 @@ export function MailSidebar({
 			</div>
 			<section className="mail-sidebar flex flex-column align-center">
 				<div
-					className="mail-sidebar-inbox flex align-center"
+					className={'mail-sidebar-inbox flex align-center ' + inboxActiveStyle}
 					onClick={() => handleChange()}
 				>
 					<div className="mail-sidebar-inbox-icon">
@@ -58,7 +66,7 @@ export function MailSidebar({
 					</div>
 				</div>
 				<div
-					className="mail-sidebar-sent flex align-center"
+					className={'mail-sidebar-sent flex align-center ' + sentActiveStyle}
 					onClick={() => handleChange()}
 				>
 					<div className="mail-sidebar-sent-icon">
@@ -67,7 +75,9 @@ export function MailSidebar({
 					<div className="mail-sidebar-sent-txt">Sent</div>
 				</div>
 				<div
-					className="mail-sidebar-drafts flex align-center"
+					className={
+						'mail-sidebar-drafts flex align-center ' + draftsActiveStyle
+					}
 					onClick={() => handleChange()}
 				>
 					<div className="mail-sidebar-drafts-icon">
@@ -76,7 +86,7 @@ export function MailSidebar({
 					<div className="mail-sidebar-drafts-txt">Drafts</div>
 				</div>
 				<div
-					className="mail-sidebar-trash flex align-center"
+					className={'mail-sidebar-trash flex align-center ' + trashActiveStyle}
 					onClick={() => handleChange()}
 				>
 					<div className="mail-sidebar-trash-icon">
