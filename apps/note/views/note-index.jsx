@@ -120,7 +120,7 @@ export function NoteIndex() {
 				deleteNote={deleteNote} 
 				duplicateNote={duplicateNote} 
 				pinNote={pinNote}
-				editText={editText}
+				// editText={editText}
 				onChangeColor={onChangeColor}
 				/>}
 			{isLoading && <div><Loader /></div>}

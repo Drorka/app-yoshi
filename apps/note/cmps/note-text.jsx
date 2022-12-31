@@ -1,43 +1,45 @@
+const { useState, useEffect } = React
+
 import { noteService } from './../services/note.service.js'
 
-const { useState } = React
 
 export function NoteTxt( {info, editText} ) {
-    console.log('txt note', info);
 
-	const [noteToEdit, setNoteToEdit] = useState()
+	const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyNote())
 
 
-	function handleChange({ target }) {
-        let { value, name: field, type } = target
-        value = (type === 'number') ? +value : value
+    useEffect(() =>{
+		console.log('useEffect');
+        loadBook()
+    } , [])
 
-        setFilterByToEdit((prevFilter) => {
-            return {...prevFilter , [field]: value}
+
+    function loadBook() {
+		console.log('loadBook');
+        noteService.get(noteId)
+        .then((note) => setNoteToEdit(note))
+        .catch((err) =>{
+            console.log('err' ,err)
         })
     }
 
-	// const [filterBy, setFilterByToEdit] = useState(noteService.getDefaultFilter())
 
-	// useEffect(() => {
-    //     onSetFilter(filterBy)
-    // }, [filterBy])
-
-
-	// function handleChange({ target }) {
-    //     let { value, name: field, type } = target
-    //     value = (type === 'number') ? +value : value
-
-    //     setFilterByToEdit((prevFilter) => {
-    //         return {...prevFilter , [field]: value}
-    //     })
-    // }
+    function handleChange({target}) { 
+		console.log('handleChange');  
+        let {value , type , name:field} = target
+        value = type ==='number' ? +value : value
+        setNoteToEdit((prevNote) => ({...prevNote , [field] : value}))
+    }
 
 
-	// function onSubmitFilter(ev) {
-    //     ev.preventDefault()
-    //     onSetFilter(filterBy)
-    // }
+    function onSubmitTxt(ev) {
+		console.log('onSubmitTxt');
+        ev.preventDefault()
+        noteService.save(noteToEdit).then((note)=>{
+            console.log('note', note)
+        })
+    }
+
 
 
     return <div className="note-content-txt" >
@@ -49,7 +51,7 @@ export function NoteTxt( {info, editText} ) {
 				className="note-content-txt-title"
 				onChange={handleChange}
 				value={info.title}
-				onBlur={() => editText(note, noteTitle)}
+				onBlur={() => onSubmitTxt(noteToEdit.id)}
 				> {info.title}</h1>
 
 
@@ -59,7 +61,7 @@ export function NoteTxt( {info, editText} ) {
 				className="note-content-txt-text"
 				onChange={handleChange}
 				value={info.txt}
-				onBlur={() => editText(note, noteTxt)}
+				onBlur={() => onSubmitTxt(noteToEdit.id)}
 				> 
 				{info.txt}
 			</p>

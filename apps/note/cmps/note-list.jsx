@@ -15,7 +15,7 @@ export function NoteList( { notes, deleteNote, duplicateNote, pinNote, editText,
                     deleteNote={deleteNote} 
                     duplicateNote={duplicateNote}
                     pinNote={pinNote}
-                    editText={editText}
+                    // editText={editText}
                     onChangeColor={onChangeColor}
                     />
 				</div>
