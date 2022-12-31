@@ -27,6 +27,10 @@ export function MailSidebar({
 
 	function handleChange() {
 		let status = event.target.innerText.split(' ')[0].toLowerCase()
+		// handle click in mobile view
+		if (status === 'send') status = 'sent'
+		if (status === 'delete') status = 'trash'
+		if (status === 'draft') status = 'drafts'
 		console.log(status)
 		// value = type === 'number' ? +value : value
 		setCriteriaToEdit((prevCriteria) => ({ ...prevCriteria, status: status }))
@@ -45,7 +49,7 @@ export function MailSidebar({
 	// }
 
 	return (
-		<section>
+		<section className="mail-sidebar-container">
 			<div
 				className="compose-mail flex justify-center align-center"
 				onClick={() => onComposeClick()}

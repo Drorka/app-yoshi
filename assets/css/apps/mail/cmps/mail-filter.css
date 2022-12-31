@@ -1,51 +1,116 @@
-.mail-filter {
-    margin-bottom: 15px;
-    margin-right: 10px;
-    margin-left: 10px;
-    height: 45px;
-    /* width: 500px; */
-    font-size: 1rem;
-    color: var(--mail-txt2);
+/* *dt first */
+/* desktop */
+@media (min-width: 780px) {
+    .mail-filter {
+        margin-bottom: 15px;
+        margin-right: 10px;
+        margin-left: 10px;
+        height: 45px;
+        /* width: 500px; */
+        font-size: 1rem;
+        color: var(--mail-txt2);
 
+    }
+
+    /* searchbox */
+    .mail-filter-searchbox {
+        height: 45px;
+        width: 300px;
+        background-color: var(--mail-preview-read-bg);
+        border-radius: 12px;
+    }
+
+    .mail-filter-searchbox form, input {
+        outline: none;
+        border: none;
+        background-color: unset;
+        line-height: 45px;
+        font-size: 1rem;
+        width: 100%;
+    }
+
+    .mail-filter-searchbox button {
+        border: none;
+        outline: none;
+        background-color: unset;
+        color: var(--mail-txt2);
+    }
+
+    /* sort */
+    .mail-filter-sort {
+        margin-left: 15px;
+    }
+
+
+    .mail-filter-sort select {
+        outline: none;
+        border: unset;
+        background-color: var(--mail-preview-read-bg);
+        line-height: 45px;
+        font-size: 1rem;
+        margin-left: 8px;
+        border-radius: 12px;
+        padding: 5px;
+    }
 }
 
-/* searchbox */
-.mail-filter-searchbox {
-    height: 45px;
-    width: 300px;
-    background-color: var(--mail-preview-read-bg);
-    border-radius: 12px;
-}
+/* tablet */
+@media (min-width: 480px) {}
 
-.mail-filter-searchbox form, input {
-    outline: none;
-    border: none;
-    background-color: unset;
-    line-height: 45px;
-    font-size: 1rem;
-    width: 100%;
-}
+/* mobile */
+@media (max-width: 480px) {
+    .mail-filter {
+        margin-bottom: 15px;
+        margin-right: 10px;
+        margin-left: 10px;
+        height: 45px;
+        /* width: 500px; */
+        font-size: 0.875;
+        color: var(--mail-txt2);
 
-.mail-filter-searchbox button {
-    border: none;
-    outline: none;
-    background-color: unset;
-    color: var(--mail-txt2);
-}
+    }
 
-/* sort */
-.mail-filter-sort {
-    margin-left: 15px;
-}
+    /* searchbox */
+    .mail-filter-searchbox {
+        height: 35px;
+        width: 60%;
+        background-color: var(--mail-preview-read-bg);
+        border-radius: 12px;
+    }
+
+    .mail-filter-searchbox form, input {
+        outline: none;
+        border: none;
+        background-color: unset;
+        font-size: 0.875;
+        width: 100%;
+    }
+
+    .mail-filter-searchbox button {
+        border: none;
+        outline: none;
+        background-color: unset;
+        color: var(--mail-txt2);
+    }
+
+    /* sort */
+    .mail-filter-sort {
+        margin-left: 15px;
+    }
+
+    .mail-filter-sort-txt {
+        display: none;
+    }
 
 
-.mail-filter-sort select {
-    outline: none;
-    border: unset;
-    background-color: var(--mail-preview-read-bg);
-    line-height: 45px;
-    font-size: 1rem;
-    margin-left: 8px;
-    border-radius: 12px;
-    padding: 5px;
+    .mail-filter-sort select {
+        outline: none;
+        border: unset;
+        background-color: var(--mail-preview-read-bg);
+        line-height: 45px;
+        font-size: 0.875;
+        margin-left: 8px;
+        border-radius: 12px;
+        padding: 5px;
+    }
 }

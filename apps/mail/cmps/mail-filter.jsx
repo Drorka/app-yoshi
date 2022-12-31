@@ -31,7 +31,6 @@ export function MailFilter({ onSetCriteria, loadMails }) {
 
 	function onSortMailsBy(val) {
 		console.log('sort by me', val)
-		console.log('1669916846000')
 		mailService.sortMailsBy(val).then(() => loadMails())
 	}
 
@@ -59,7 +58,7 @@ export function MailFilter({ onSetCriteria, loadMails }) {
 				<span className="material-symbols-outlined mail-filter-sort-icon">
 					tune
 				</span>
-				<span>Sort by </span>
+				<span className="mail-filter-sort-txt">Sort by </span>
 				<select onChange={(ev) => onSortMailsBy(ev.target.value)} name="" id="">
 					<option value="sentAt">Date</option>
 					<option value="subject">Subject</option>

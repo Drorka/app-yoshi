@@ -25,45 +25,53 @@ export function MailPreview({
 	}
 
 	return (
-		<article className={'mail-preview flex align-center ' + read}>
-			<div className="mail-markers flex space-around">
-				<span className="material-symbols-outlined">
+		<article
+			className={'mail-preview flex align-center preview-mobile-set ' + read}
+		>
+			<div className="mobile-set-upper">
+				<div className="mail-markers flex space-around markers-mobile-set">
+					{/* <span className="material-symbols-outlined">
 					check_box_outline_blank
-				</span>
-				<span className="material-symbols-outlined">star</span>
-				<span className="material-symbols-outlined">label_important</span>
-			</div>
-			<div
-				className={'mail-sender ' + read}
-				onClick={() => onOpenMailDetails(mail.id)}
-			>
-				{mail.sender}
-			</div>
-			<div
-				className={'mail-subject ' + read}
-				onClick={() => onOpenMailDetails(mail.id)}
-			>
-				{mail.subject}
-			</div>
-			<div className="mail-body" onClick={() => onOpenMailDetails(mail.id)}>
-				- {mail.body}
-			</div>
-			<div className={'mail-date ' + read}>{mailDate}</div>
-			<div className="mail-quick-crudl">
-				<span
-					className="material-symbols-outlined move-to-trash-icon"
-					onClick={() => onMoveMailTo(mail.id, 'trash')}
-					title="Move to trash"
+				</span> */}
+					<span className="material-symbols-outlined">star</span>
+					{/* <span className="material-symbols-outlined">label_important</span> */}
+				</div>
+				<div
+					className={'mail-sender ' + read}
+					onClick={() => onOpenMailDetails(mail.id)}
 				>
-					delete
-				</span>
-				<span
-					className="material-symbols-outlined mark-as-icon"
-					onClick={() => onMarkAs(mail.id)}
-					title={`Mak as ${read}`}
+					{mail.sender}
+				</div>
+			</div>
+			<div className="mobile-set-middle">
+				<div
+					className={'mail-subject ' + read}
+					onClick={() => onOpenMailDetails(mail.id)}
 				>
-					{markAsSymbol}
-				</span>
+					{mail.subject}
+				</div>
+				<div className="mail-body" onClick={() => onOpenMailDetails(mail.id)}>
+					- {mail.body}
+				</div>
+			</div>
+			<div className="mobile-set-lower">
+				<div className={'mail-date ' + read}>{mailDate}</div>
+				<div className="mail-quick-crudl">
+					<span
+						className="material-symbols-outlined move-to-trash-icon"
+						onClick={() => onMoveMailTo(mail.id, 'trash')}
+						title="Move to trash"
+					>
+						delete
+					</span>
+					<span
+						className="material-symbols-outlined mark-as-icon"
+						onClick={() => onMarkAs(mail.id)}
+						title={`Mak as ${read}`}
+					>
+						{markAsSymbol}
+					</span>
+				</div>
 			</div>
 		</article>
 	)
