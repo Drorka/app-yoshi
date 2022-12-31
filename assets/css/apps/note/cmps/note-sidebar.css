@@ -1,0 +1,33 @@
+.note-sidebar {
+    padding: 4px;
+    padding-left: 0px;
+}
+
+
+.note-sidebar  .sidebar-btns {
+    display: flex;
+    flex-direction: column;
+    width: 40px;
+    box-shadow: 0 1px 2px 0 rgb(60 64 67 / 30%);
+    border-radius: 8px;
+    background-color: #DBDBDB;
+    opacity: 60%;
+    z-index: 1;
+    position: fixed;
+    top: 150px;
+}
+
+
+.note-sidebar  .sidebar-btns button {
+    background-color: transparent;
+    border: none;
+    height: 46px;
+    opacity: 80%;
+    cursor: pointer;
+    transition: transform .2s ease-in-out;
+    position: sticky;
+}
+
+.note-sidebar  .sidebar-btns button:hover {
+    transform: scale(1.2);
+}

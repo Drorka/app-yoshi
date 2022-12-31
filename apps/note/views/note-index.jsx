@@ -8,6 +8,7 @@ import { utilService } from '../../../services/util.service.js'
 import { NoteAdd } from '../cmps/note-add.jsx'
 import { NoteList } from '../cmps/note-list.jsx'
 import { NoteFilter } from '../cmps/note-filter.jsx'
+import { NoteSidebar } from '../cmps/note-sidebar.jsx'
 
 
 export function NoteIndex() {
@@ -82,10 +83,10 @@ export function NoteIndex() {
 	}
 
 
-	function editText(note, noteText) {
-        note.txt = noteText
-        noteService.updateTextNote(note)
-    }
+	// function editText(note, noteText) {
+    //     note.txt = noteText
+    //     noteService.updateTextNote(note)
+    // }
 
 
 	// function editText(noteToEdit) {
@@ -108,6 +109,8 @@ export function NoteIndex() {
     
 	return <section className="note-index">
 
+		<NoteSidebar onSetFilter={onSetFilter} />
+
 		<NoteFilter onSetFilter={onSetFilter} />
 
 		<div className="note-index-add">
@@ -120,7 +123,7 @@ export function NoteIndex() {
 				deleteNote={deleteNote} 
 				duplicateNote={duplicateNote} 
 				pinNote={pinNote}
-				editText={editText}
+				// editText={editText}
 				onChangeColor={onChangeColor}
 				/>}
 			{isLoading && <div><Loader /></div>}

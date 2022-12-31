@@ -1,25 +1,70 @@
+const { useState, useEffect } = React
 
-export function NoteTxt() {
-
-    console.log('note txt');
-    return <div className="note-content" >
+import { noteService } from './../services/note.service.js'
 
 
-            <h1>note txt</h1>
-			{/* <h1>{note.info.title}</h1>
+export function NoteTxt( {info, editText} ) {
 
-			<h2>{note.info.txt}</h2> */}
+	const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyNote())
 
-			{/* <div
+
+    // useEffect(() =>{
+	// 	console.log('useEffect');
+    //     loadBook()
+    // } , [])
+
+
+    // function loadBook() {
+	// 	console.log('loadBook');
+    //     noteService.get(noteId)
+    //     .then((note) => setNoteToEdit(note))
+    //     .catch((err) =>{
+    //         console.log('err' ,err)
+    //     })
+    // }
+
+
+    function handleChange({target}) { 
+		console.log('handleChange');  
+        let {value , type , name:field} = target
+        value = type ==='number' ? +value : value
+        setNoteToEdit((prevNote) => ({...prevNote , [field] : value}))
+    }
+
+
+    function onSubmitTxt(ev) {
+		console.log('onSubmitTxt');
+        ev.preventDefault()
+        noteService.save(noteToEdit).then((note)=>{
+            console.log('note', note)
+        })
+    }
+
+
+
+    return <div className="note-content-txt" >
+
+
+            <h1
 				contentEditable={true}
 				suppressContentEditableWarning={true}
-				className="note-text"
-				onChange={changeHandle}
-				value={noteText}
-				onBlur={() => editText(note, noteText)}
+				className="note-content-txt-title"
+				onChange={handleChange}
+				value={info.title}
+				onBlur={() => onSubmitTxt(noteToEdit.id)}
+				> {info.title}</h1>
+
+
+			<p
+				contentEditable={true}
+				suppressContentEditableWarning={true}
+				className="note-content-txt-text"
+				onChange={handleChange}
+				value={info.txt}
+				onBlur={() => onSubmitTxt(noteToEdit.id)}
 				> 
-				{note.info.txt}
-			</div> */}
+				{info.txt}
+			</p>
 
 		</div>
 }

@@ -124,32 +124,59 @@ function createNotes() {
         { 
             id: "n102",
             createdAt: 11134522,
-            type: "note-img", 
+            type: "note-pic", 
             isPinned: false, 
             info: { 
                 title: "Mario and Yoshi Flying",
                 url: "https://mario.wiki.gallery/images/5/5f/Marioyoshismw.png", 
             }, 
             style: { 
-                backgroundColor: "#FDE0DF" 
+                backgroundColor: "#F8F0BC" 
             } 
         }, 
         { 
-            id: "n103", 
+            id: "n103",
+            createdAt: 11133722,
+            type: "note-video", 
+            isPinned: false, 
+            info: { 
+                title: "Evolution of Yoshi",
+                url: "O8t7yQbcRy4", 
+            }, 
+            style: { 
+                backgroundColor: "" 
+            } 
+        }, 
+        { 
+            id: "n104", 
             createdAt: 11334562,
             type: "note-todos", 
             isPinned: false, 
             info: { 
-                label: "Get my stuff together", 
+                title: "Get my stuff together", 
                 todos: [ 
-                    { txt: "Get the stone", doneAt: null }, 
-                    { txt: "Help Mario", doneAt: 187111111 },
+                    { tosoId:"t101", txt: "Get the stone", isDone: false }, 
+                    { tosoId:"t102", txt: "Help Mario", isDone: true },
+                    { tosoId:"t103", txt: "Save the princess", isDone: false },
                 ] 
             },
             style: { 
                 backgroundColor: "#B0C6D0" 
             } 
-        } 
+        },
+        { 
+            id: "n105",
+            createdAt: 11139822,
+            type: "note-pic", 
+            isPinned: false, 
+            info: { 
+                title: "",
+                url: "https://media.tenor.com/R5B3E0shIUgAAAAM/yoshi-dan%C3%A7ando-yoshi-e-ovo.gif", 
+            }, 
+            style: { 
+                backgroundColor: "" 
+            } 
+        },
     ]
         storageService.saveToStorage(NOTE_KEY, notes)
         console.log('save to storageService', notes)

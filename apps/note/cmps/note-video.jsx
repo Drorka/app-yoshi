@@ -1,25 +1,31 @@
 
-export function NoteVideo() {
+export function NoteVideo( {info} ) {
+
+
+	function handleChange({target}) { 
+
+    }
+
+
+    function onSubmitTxt(ev) {
+
+    }
 
     console.log('note video');
-    return <div className="note-content" >
+    return <div className="note-content-video" >
 
-
-            <h1>note video</h1>
-			{/* <h1>{note.info.title}</h1>
-
-			<h2>{note.info.txt}</h2> */}
-
-			{/* <div
+            <h1
 				contentEditable={true}
 				suppressContentEditableWarning={true}
-				className="note-text"
-				onChange={changeHandle}
-				value={noteText}
-				onBlur={() => editText(note, noteText)}
-				> 
-				{note.info.txt}
-			</div> */}
+				className="note-content-video-title"
+				onChange={handleChange}
+				value={info.title}
+				onBlur={() => onSubmitTxt(noteToEdit.id)}
+				> {info.title}</h1>
+
+			<iframe width="100%"
+				src={`https://www.youtube.com/embed/${info.url}`}>
+			</iframe>
 
 		</div>
 }

@@ -1,5 +1,5 @@
 .note-preview {
-    margin: 10px;
+    margin: 10px 4px;
     padding: 20px 10px;
     border-radius: 8px;
     box-shadow: 0 0px 1px 0 rgb(60 64 67 / 30%), 0 1px 3px 1px rgb(60 64 67 / 15%);
@@ -13,6 +13,7 @@
     break-inside: avoid;
     line-break: anywhere;
     position: relative;
+    text-align: center;
 }
 
 
@@ -30,16 +31,19 @@
 }
 
 
-/* .note-preview p {
+.note-preview p {
     font-size: 0.8rem;
     margin: 14px 0px 0px;
-} */
+    text-align: left;
+}
 
 
-.note-preview img {
-    max-width: 260px;
+.note-preview img, .note-preview iframe  {
+    max-width: 245px;
     height: fit-content;
-    margin: 0px 0px 16px 0px;
+    margin: 8px 0px 16px 0px;
+    border: none;
+    border-radius: 8px;
 }
 
 

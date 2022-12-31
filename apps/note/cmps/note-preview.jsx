@@ -36,7 +36,7 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 
 		<div className="note-content" >
 
-			<DynamicCmp type={note.type} info={note.info}/>
+			<DynamicCmp type={note.type} info={note.info} editText={editText}/>
 
 			{/* <h1>{note.info.title}</h1>
 
