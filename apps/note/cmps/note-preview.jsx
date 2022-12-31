@@ -2,6 +2,7 @@ const { useState, Fragment } = React
 
 import { noteService } from '../services/note.service.js'
 
+import { DynamicCmp } from './dynamic-cmp.jsx'
 import { NoteColor } from './note-color.jsx'
 
 
@@ -9,6 +10,7 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 
 	const pinnedClass = note.isPinned ? 'pinned' : 'not-pinned'
 	const [noteText, setNoteText] = useState(note.txt)
+
 
 	const [toggleColors, setToggleColors] = useState(false)
 
@@ -34,7 +36,9 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 
 		<div className="note-content" >
 
-			<h1>{note.info.title}</h1>
+			<DynamicCmp type={note.type} info={note.info}/>
+
+			{/* <h1>{note.info.title}</h1>
 
 			<h2>{note.info.label}</h2>
 
@@ -49,7 +53,7 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 				{note.info.txt}
 			</div>
 
-			<img src={note.info.url} alt="" />
+			<img src={note.info.url} alt="" /> */}
 
 		</div>
 

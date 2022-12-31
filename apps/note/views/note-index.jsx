@@ -71,14 +71,14 @@ export function NoteIndex() {
 
 	function pinNote(noteId) {
 		noteService.togglePinnedNote(noteId)
-		// loadNotes()
-			.then(() => {
-				const updatedNotes = notes.filter(note => note.id !== noteId)
-				setNotes(updatedNotes)
-			})
-			.catch((err) => {
-				console.log('err:', err)
-			})
+		loadNotes()
+			// .then(() => {
+			// 	const updatedNotes = notes.filter(note => note.id !== noteId)
+			// 	setNotes(updatedNotes)
+			// })
+			// .catch((err) => {
+			// 	console.log('err:', err)
+			// })
 	}
 
 
@@ -86,6 +86,18 @@ export function NoteIndex() {
         note.txt = noteText
         noteService.updateTextNote(note)
     }
+
+
+	// function editText(noteToEdit) {
+    //     noteService.save(noteToEdit)
+    //         .then(() => {
+    //             const notesToEdit = notes.map(note => note.id === noteToEdit.id ? noteToEdit : note)
+    //             setNotes(notesToEdit)
+    //         })
+    //         .catch((err) => {
+    //             console.log('err:', err)
+    //         })
+    // }
 
 
 	function onChangeColor(note, color) {
