@@ -55,7 +55,10 @@ export function MailFilter({ onSetCriteria, loadMails }) {
 				</form>
 			</div>
 			<div className="mail-filter-sort flex align-center">
-				<span className="material-symbols-outlined">mark_as_unread</span>
+				{/* <span className="material-symbols-outlined">mark_as_unread</span> */}
+				<span className="material-symbols-outlined mail-filter-sort-icon">
+					tune
+				</span>
 				<span>Sort by </span>
 				<select onChange={(ev) => onSortMailsBy(ev.target.value)} name="" id="">
 					<option value="sentAt">Date</option>

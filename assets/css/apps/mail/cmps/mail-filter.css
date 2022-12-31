@@ -33,7 +33,19 @@
     color: var(--mail-txt2);
 }
 
-/* filter by isRead */
-.mail-filter-by-isread {
+/* sort */
+.mail-filter-sort {
     margin-left: 15px;
+}
+
+
+.mail-filter-sort select {
+    outline: none;
+    border: unset;
+    background-color: var(--mail-preview-read-bg);
+    line-height: 45px;
+    font-size: 1rem;
+    margin-left: 8px;
+    border-radius: 12px;
+    padding: 5px;
 }
