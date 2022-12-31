@@ -11,7 +11,6 @@ export function NotePic( {info} ) {
 
     }
 
-    console.log('note pic');
     return <div className="note-content-pic" >
 
 

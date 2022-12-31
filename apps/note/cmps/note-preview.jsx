@@ -38,23 +38,6 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 
 			<DynamicCmp type={note.type} info={note.info} editText={editText}/>
 
-			{/* <h1>{note.info.title}</h1>
-
-			<h2>{note.info.label}</h2>
-
-			<div
-				contentEditable={true}
-				suppressContentEditableWarning={true}
-				className="note-text"
-				onChange={changeHandle}
-				value={noteText}
-				onBlur={() => editText(note, noteText)}
-				> 
-				{note.info.txt}
-			</div>
-
-			<img src={note.info.url} alt="" /> */}
-
 		</div>
 
 

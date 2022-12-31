@@ -11,7 +11,6 @@ import { MailIndex } from './apps/mail/views/mail-index.jsx'
 import { MailEdit } from './apps/mail/cmps/mail-edit.jsx'
 
 import { NoteIndex } from './apps/note/views/note-index.jsx'
-import { NoteDetails } from './apps/note/views/note-details.jsx'
 import { NoteEdit } from './apps/note/views/note-edit.jsx'
 
 export function App() {
@@ -27,7 +26,6 @@ export function App() {
 					<Route element={<MailEdit />} path="/mail/edit/:mailId" />
 
 					<Route element={<NoteIndex />} path="/note" />
-					<Route element={<NoteDetails />} path="/note/:noteId" />
 					{/* edit should be nested under list */}
 					<Route element={<NoteEdit />} path="/note/edit/:noteId" />
 					<Route element={<About />} path="/about" />

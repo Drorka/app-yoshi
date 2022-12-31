@@ -13,7 +13,6 @@ import { NoteSidebar } from '../cmps/note-sidebar.jsx'
 
 export function NoteIndex() {
 
-	const [isLoading, setIsLoading] = useState(false)
 	const [filterBy, setFilterBy] = useState(noteService.getDefaultFilter())
 	const [notes, setNotes] = useState([])
 
@@ -24,11 +23,9 @@ export function NoteIndex() {
 
 
 	function loadNotes() {
-		setIsLoading(true)
 
 		noteService.query(filterBy).then((notes) => {
 			setNotes(notes)
-			setIsLoading(false)
 		})
 	}
 
@@ -40,12 +37,7 @@ export function NoteIndex() {
 
 	function saveNote(noteToSave) {
 		noteService.save(noteToSave)
-			.then(noteToSave => {
-				setNotes(prevNotes => [...prevNotes, noteToSave])
-			})
-            .catch((err) => {
-                console.log('err:', err)
-            })
+		loadNotes()
     }
 
 
@@ -73,32 +65,7 @@ export function NoteIndex() {
 	function pinNote(noteId) {
 		noteService.togglePinnedNote(noteId)
 		loadNotes()
-			// .then(() => {
-			// 	const updatedNotes = notes.filter(note => note.id !== noteId)
-			// 	setNotes(updatedNotes)
-			// })
-			// .catch((err) => {
-			// 	console.log('err:', err)
-			// })
 	}
-
-
-	// function editText(note, noteText) {
-    //     note.txt = noteText
-    //     noteService.updateTextNote(note)
-    // }
-
-
-	// function editText(noteToEdit) {
-    //     noteService.save(noteToEdit)
-    //         .then(() => {
-    //             const notesToEdit = notes.map(note => note.id === noteToEdit.id ? noteToEdit : note)
-    //             setNotes(notesToEdit)
-    //         })
-    //         .catch((err) => {
-    //             console.log('err:', err)
-    //         })
-    // }
 
 
 	function onChangeColor(note, color) {
@@ -118,15 +85,13 @@ export function NoteIndex() {
 		</div>
 
 		<div className="note-index-list">
-			{!isLoading && <NoteList 
+			<NoteList 
 				notes={notes} 
 				deleteNote={deleteNote} 
 				duplicateNote={duplicateNote} 
 				pinNote={pinNote}
-				// editText={editText}
 				onChangeColor={onChangeColor}
-				/>}
-			{isLoading && <div><Loader /></div>}
+				/>
 		</div>
 
 	</section>
