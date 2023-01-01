@@ -33,7 +33,7 @@
 
 .note-preview p {
     font-size: 0.8rem;
-    margin: 14px 0px 0px;
+    margin: 14px 4px 14px;
     text-align: left;
 }
 
@@ -106,4 +106,10 @@
 
 .note-text:focus {
     outline: 0;
+}
+
+
+li {
+    text-align: left;
+    font-size: 0.8rem;
 }

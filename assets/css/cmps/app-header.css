@@ -19,7 +19,7 @@ nav a {
 }
 
 
-nav a img {
+nav a img, .app-header img {
     height: 30px;
     width: auto;
     object-fit: cover;

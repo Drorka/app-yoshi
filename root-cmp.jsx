@@ -28,7 +28,7 @@ export function App() {
 					<Route element={<NoteIndex />} path="/note" />
 					{/* edit should be nested under list */}
 					<Route element={<NoteEdit />} path="/note/edit/:noteId" />
-					<Route element={<About />} path="/about" />
+					{/* <Route element={<About />} path="/about" /> */}
 				</Routes>
 			</section>
 		</Router>

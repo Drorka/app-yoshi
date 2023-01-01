@@ -6,7 +6,7 @@ import { DynamicCmp } from './dynamic-cmp.jsx'
 import { NoteColor } from './note-color.jsx'
 
 
-export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editText, onChangeColor } ) {
+export function NotePreview( { note, updateNote, deleteNote, duplicateNote, pinNote, editText, onChangeColor } ) {
 
 	const pinnedClass = note.isPinned ? 'pinned' : 'not-pinned'
 	const [noteText, setNoteText] = useState(note.txt)
@@ -36,7 +36,10 @@ export function NotePreview( { note, deleteNote, duplicateNote, pinNote, editTex
 
 		<div className="note-content" >
 
-			<DynamicCmp type={note.type} info={note.info} editText={editText}/>
+			<DynamicCmp 
+				type={note.type}
+				info={note.info} 
+				editText={editText}/>
 
 		</div>
 
