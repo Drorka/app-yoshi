@@ -21,7 +21,6 @@ export function MailPreview({
 		console.log('link me to mail details', mailId)
 		setMailDetailsToOpen(mailId)
 		setIsMailDetailsActive(true)
-		// navigate(`/mail/${mailId}`)
 	}
 
 	return (
