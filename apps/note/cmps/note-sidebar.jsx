@@ -27,6 +27,7 @@ export function NoteSidebar( {onSetFilter} ) {
         onSetFilter(filterBy)
     }
 
+
     return <section className="note-sidebar">
         
         <div className="sidebar-btns">

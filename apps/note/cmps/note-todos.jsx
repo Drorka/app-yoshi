@@ -2,14 +2,22 @@
 export function NoteTodos( {info}) {
 
 
-	function handleChange({target}) { 
-
+    function handleChange({target}) { 
+		console.log('handleChange');  
+        let {value , type , name:field} = target
+        value = type ==='number' ? +value : value
+        setNoteToEdit((prevNote) => ({...prevNote , [field] : value}))
     }
 
 
     function onSubmitTxt(ev) {
-
+		console.log('onSubmitTxt');
+        ev.preventDefault()
+        noteService.save(noteToEdit).then((note)=>{
+            console.log('note', note)
+        })
     }
+
 
     return <div className="note-content-todos" >
 
@@ -24,7 +32,12 @@ export function NoteTodos( {info}) {
 
 			<ul className="note-content-todos-list">
 				{
-				info.todos.map(todo => <li key={info.todos.todoId}>{info.todos.txt}</li>)
+				info.todos.map(todo => <li key={todo.todoId}
+					contentEditable={true}
+	 				suppressContentEditableWarning={true}
+					onChange={handleChange}
+					value={todo.txt}
+					onBlur={() => onSubmitTxt}>{todo.txt}</li>)
 				}
 			</ul>
 

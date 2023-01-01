@@ -3,7 +3,7 @@ const { useState, useEffect } = React
 import { noteService } from './../services/note.service.js'
 
 
-export function NoteTxt( {info, editText} ) {
+export function NoteTxt( {info} ) {
 
 	const [noteToEdit, setNoteToEdit] = useState(noteService.getEmptyNote())
 
@@ -25,7 +25,6 @@ export function NoteTxt( {info, editText} ) {
 
 
     function handleChange({target}) { 
-		console.log('handleChange');  
         let {value , type , name:field} = target
         value = type ==='number' ? +value : value
         setNoteToEdit((prevNote) => ({...prevNote , [field] : value}))
@@ -33,7 +32,6 @@ export function NoteTxt( {info, editText} ) {
 
 
     function onSubmitTxt(ev) {
-		console.log('onSubmitTxt');
         ev.preventDefault()
         noteService.save(noteToEdit).then((note)=>{
             console.log('note', note)

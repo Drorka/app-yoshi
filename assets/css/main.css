@@ -19,7 +19,6 @@
 /* note */
 @import './apps/note/views/note-app.css';
 @import './apps/note/views/note-index.css';
-@import './apps/note/views/note-details.css';
 @import './apps/note/views/note-edit.css';
 @import './apps/note/views/note-add.css';
 

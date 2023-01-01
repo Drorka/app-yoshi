@@ -77,8 +77,16 @@ function togglePinnedNote(noteId) {
     notePinned.isPinned = notePinned.isPinned ? false : true
 
     const noteIdx = notes.findIndex(note => note.id === noteId)
-    notes.splice(noteIdx, 1)
-    notes.splice(0, 0, notePinned)
+
+    if (notePinned.isPinned) {
+        notes.splice(noteIdx, 1)
+        notes.splice(0, 0, notePinned)
+        }
+
+    else {
+        notes.splice(noteIdx, 1)
+        notes.splice(notes.length, 0, notePinned)
+    }
 
     save(notePinned)
 
@@ -112,7 +120,7 @@ function createNotes() {
             id: "n101", 
             createdAt: 1112222,
             type: "note-txt", 
-            isPinned: true, 
+            isPinned: false, 
             info: { 
                 title: "",
                 txt: "The version of Yoshi seen in the Super Mario Bros!",
@@ -169,7 +177,7 @@ function createNotes() {
                 title: "Get my stuff together", 
                 todos: [ 
                     { tosoId:"t101", txt: "Get the stone", isDone: false }, 
-                    { tosoId:"t102", txt: "Help Mario", isDone: true },
+                    { tosoId:"t102", txt: "Help Mario", isDone: false },
                     { tosoId:"t103", txt: "Save the princess", isDone: false },
                 ] 
             },
@@ -181,7 +189,7 @@ function createNotes() {
             id: "n106", 
             createdAt: 1112222,
             type: "note-txt", 
-            isPinned: true, 
+            isPinned: false, 
             info: { 
                 title: "Mamma mia!",
                 txt: "Here we go!",
