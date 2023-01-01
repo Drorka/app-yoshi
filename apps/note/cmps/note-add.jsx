@@ -19,6 +19,7 @@ export function NoteAdd( {saveNote}) {
     function onSaveNote(ev) {
         ev.preventDefault()
         saveNote(noteToSave)
+        setNoteToSave(noteService.getEmptyNote())
     }
 
 

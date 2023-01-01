@@ -37,7 +37,14 @@ export function NoteIndex() {
 
 	function saveNote(noteToSave) {
 		noteService.save(noteToSave)
-		loadNotes()
+			.then((noteToSave) => {
+				const newNotes = notes.map(note => note.id === noteToSave.id ? noteToSave : note)
+				newNotes.push(noteToSave)
+				setNotes(newNotes)
+			})
+			.catch((err) => {
+				console.log('err', err)
+			})
     }
 
 
